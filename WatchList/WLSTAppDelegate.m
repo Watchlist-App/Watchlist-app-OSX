@@ -8,16 +8,38 @@
 
 #import "WLSTAppDelegate.h"
 
+
 @implementation WLSTAppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize managedObjectContext = _managedObjectContext;
 
+
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    [self.window close];
+    [self.loginWindowController showWindow:self];
+    [self.libraryWindowController showWindow:self];
 }
+
+
+- (LoginWindowController*)loginWindowController{
+    if (!_loginWindowController) {
+        _loginWindowController = [[LoginWindowController alloc] initWithWindowNibName:@"LoginWindow"];
+    }
+    return _loginWindowController;
+}
+
+- (WLSTWindowController*)libraryWindowController{
+    if (!_WLSTWindowController) {
+        _WLSTWindowController = [[WLSTWindowController alloc] initWithWindowNibName:@"Library"];
+    }
+    return _WLSTWindowController;
+}
+
+
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.dm.WatchList" in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory
@@ -179,5 +201,8 @@
 
     return NSTerminateNow;
 }
+
+
+
 
 @end

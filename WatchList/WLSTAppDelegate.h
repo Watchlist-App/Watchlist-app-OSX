@@ -7,15 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "LoginWindowController.h"
+#import "WLSTWindowController.h"
 
 @interface WLSTAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
-
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
-
 - (IBAction)saveAction:(id)sender;
-
+@property (strong, nonatomic)LoginWindowController* loginWindowController;
+@property (strong, nonatomic)WLSTWindowController *WLSTWindowController;
 @end
