@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'WatchList' target in the 'WatchList' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif
