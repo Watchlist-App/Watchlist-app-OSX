@@ -21,7 +21,9 @@
     // Insert code here to initialize your application
     [self.window close];
     [self.loginWindowController showWindow:self];
-    [self.libraryWindowController showWindow:self];
+    [self.watchlistWindowController showWindow:self];
+    
+    //[self.libraryWindowController showWindow:self];
 }
 
 
@@ -32,13 +34,13 @@
     return _loginWindowController;
 }
 
-- (WLSTWindowController*)libraryWindowController{
-    if (!_WLSTWindowController) {
-        _WLSTWindowController = [[WLSTWindowController alloc] initWithWindowNibName:@"Library"];
-    }
-    return _WLSTWindowController;
-}
 
+- (WatchlistWindowController*)watchlistWindowController{
+    if (!_watchlistWindowController) {
+        _watchlistWindowController = [[WatchlistWindowController alloc] initWithWindowNibName:@"WatchlistWindow"];
+    }
+    return _watchlistWindowController;
+}
 
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.dm.WatchList" in the user's Application Support directory.

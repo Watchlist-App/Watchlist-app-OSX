@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "LoginWindowController.h"
-#import "WLSTWindowController.h"
+#import "WatchlistWindowController.h"
 
 @interface WLSTAppDelegate : NSObject <NSApplicationDelegate>
 
@@ -18,5 +18,5 @@
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 - (IBAction)saveAction:(id)sender;
 @property (strong, nonatomic)LoginWindowController* loginWindowController;
-@property (strong, nonatomic)WLSTWindowController *WLSTWindowController;
+@property (strong, nonatomic)WatchlistWindowController *watchlistWindowController;
 @end

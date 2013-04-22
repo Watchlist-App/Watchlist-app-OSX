@@ -3,13 +3,23 @@
     <entity name="List" syncable="YES">
         <attribute name="icon" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="movies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Movie" inverseName="listContainer" inverseEntity="Movie" syncable="YES"/>
+        <relationship name="owner" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="lists" inverseEntity="User" syncable="YES"/>
     </entity>
     <entity name="Movie" syncable="YES">
-        <attribute name="poster" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="posterURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Decimal" defaultValueString="0.0" syncable="YES"/>
+        <relationship name="listContainer" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="List" inverseName="movies" inverseEntity="List" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <attribute name="login" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="List" inverseName="owner" inverseEntity="List" syncable="YES"/>
     </entity>
     <elements>
-        <element name="List" positionX="160" positionY="192" width="128" height="75"/>
-        <element name="Movie" positionX="160" positionY="192" width="128" height="75"/>
+        <element name="List" positionX="160" positionY="192" width="128" height="103"/>
+        <element name="Movie" positionX="153" positionY="9" width="128" height="103"/>
+        <element name="User" positionX="-74" positionY="209" width="128" height="88"/>
     </elements>
 </model>
