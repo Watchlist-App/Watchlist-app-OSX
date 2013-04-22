@@ -26,6 +26,9 @@
     //[self.libraryWindowController showWindow:self];
 }
 
+- (IBAction)preferencesMenuClicked:(id)sender {
+    NSLog(@"show settings panel");
+}
 
 - (LoginWindowController*)loginWindowController{
     if (!_loginWindowController) {

@@ -17,6 +17,9 @@
 @property (weak) IBOutlet NSTableView *watchlistTableView;
 @property (strong) IBOutlet NSArrayController *searchResultsArrayController;
 @property (strong) IBOutlet NSScrollView *searchResultsScrollView;
+@property (weak) IBOutlet NSTextField *searchTextField;
+@property (strong) IBOutlet NSViewController *popoverViewController;
+@property (strong) IBOutlet NSPopover *popover;
 
 
 @end
@@ -37,7 +40,11 @@
 - (IBAction)addListClicked:(id)sender {
 }
 
-- (IBAction)addMovieClicked:(id)sender {
+- (IBAction)searchClicked:(id)sender {
+}
+
+- (IBAction)addMovieClicked:(NSButton*)sender {
+    [self.popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSMinYEdge];
 }
 
 - (IBAction)switchViewClicked:(id)sender {

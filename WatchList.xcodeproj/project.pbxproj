@@ -56,6 +56,7 @@
 		6396A24717247581009E9F40 /* IMDBFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6396A24617247581009E9F40 /* IMDBFetcher.m */; };
 		63C8F29A1713FA6A0028C76A /* popoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C8F2991713FA6A0028C76A /* popoverViewController.m */; };
 		63C8F29D1713FAA00028C76A /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63C8F29C1713FAA00028C76A /* LoginView.m */; };
+		63E917DD17251D2400228ADE /* SettingsPanel.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63E917DC17251D2400228ADE /* SettingsPanel.xib */; };
 		63F47AAB17248E1F00F8B322 /* WatchlistWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63F47AA917248E1F00F8B322 /* WatchlistWindowController.m */; };
 		63F47AAC17248E1F00F8B322 /* WatchlistWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63F47AAA17248E1F00F8B322 /* WatchlistWindow.xib */; };
 		63FBE85917193C10000149E9 /* band-of-brothers-poster-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63FBE85817193C10000149E9 /* band-of-brothers-poster-1.jpg */; };
@@ -125,6 +126,7 @@
 		63C8F2991713FA6A0028C76A /* popoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = popoverViewController.m; sourceTree = "<group>"; };
 		63C8F29B1713FAA00028C76A /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
 		63C8F29C1713FAA00028C76A /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		63E917DC17251D2400228ADE /* SettingsPanel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsPanel.xib; sourceTree = "<group>"; };
 		63F47AA817248E1F00F8B322 /* WatchlistWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistWindowController.h; sourceTree = "<group>"; };
 		63F47AA917248E1F00F8B322 /* WatchlistWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchlistWindowController.m; sourceTree = "<group>"; };
 		63F47AAA17248E1F00F8B322 /* WatchlistWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchlistWindow.xib; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				63F47AAA17248E1F00F8B322 /* WatchlistWindow.xib */,
+				63E917DC17251D2400228ADE /* SettingsPanel.xib */,
 			);
 			name = "Views And Windows";
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				6327559D17230D3F0051BAA3 /* 8.jpg in Resources */,
 				6327559E17230D3F0051BAA3 /* 9.png in Resources */,
 				63F47AAC17248E1F00F8B322 /* WatchlistWindow.xib in Resources */,
+				63E917DD17251D2400228ADE /* SettingsPanel.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
