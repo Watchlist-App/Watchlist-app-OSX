@@ -810,6 +810,7 @@ YW4gSGFyZXdvb2Q</string>
 						<string key="NSFrame">{{114, 0}, {692, 155}}</string>
 						<reference key="NSSuperview" ref="383497121"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<string key="NSAntiCompressionPriority">{250, 750}</string>
 						<bool key="NSEnabled">YES</bool>
@@ -1013,7 +1014,6 @@ aGFlbCBSb29mA</string>
 								<int key="NSvFlags">274</int>
 								<string key="NSFrameSize">{769, 545}</string>
 								<reference key="NSSuperview" ref="741261708"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="1039816541"/>
 								<string key="NSReuseIdentifierKey">_NS:80</string>
 								<string key="NSMinGridSize">{0, 0}</string>
@@ -1032,7 +1032,6 @@ aGFlbCBSb29mA</string>
 						</array>
 						<string key="NSFrame">{{1, 1}, {769, 545}}</string>
 						<reference key="NSSuperview" ref="115263914"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="1039162926"/>
 						<string key="NSReuseIdentifierKey">_NS:78</string>
 						<reference key="NSDocView" ref="1039162926"/>
@@ -1044,7 +1043,6 @@ aGFlbCBSb29mA</string>
 						<int key="NSvFlags">-2147483392</int>
 						<string key="NSFrame">{{234, 1}, {15, 143}}</string>
 						<reference key="NSSuperview" ref="115263914"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="221324559"/>
 						<string key="NSReuseIdentifierKey">_NS:82</string>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -1058,7 +1056,7 @@ aGFlbCBSb29mA</string>
 						<int key="NSvFlags">-2147483392</int>
 						<string key="NSFrame">{{1, 144}, {233, 15}}</string>
 						<reference key="NSSuperview" ref="115263914"/>
-						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:91</string>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						<int key="NSsFlags">1</int>
@@ -1069,7 +1067,6 @@ aGFlbCBSb29mA</string>
 				</array>
 				<string key="NSFrameSize">{771, 547}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="741261708"/>
 				<string key="NSReuseIdentifierKey">_NS:76</string>
 				<int key="NSsFlags">133682</int>
@@ -1139,7 +1136,7 @@ aGFlbCBSb29mA</string>
 							<int key="NSButtonFlags">-2038284288</int>
 							<int key="NSButtonFlags2">129</int>
 							<string key="NSAlternateContents"/>
-							<string key="NSKeyEquivalent"/>
+							<string type="base64-UTF8" key="NSKeyEquivalent">DQ</string>
 							<int key="NSPeriodicDelay">200</int>
 							<int key="NSPeriodicInterval">25</int>
 						</object>
@@ -1189,7 +1186,7 @@ aGFlbCBSb29mA</string>
 						<int key="NSvFlags">268</int>
 						<string key="NSFrame">{{83, 10}, {38, 17}}</string>
 						<reference key="NSSuperview" ref="929871613"/>
-						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="341990734">
@@ -1217,7 +1214,6 @@ aGFlbCBSb29mA</string>
 						</set>
 						<string key="NSFrame">{{18, 32}, {169, 173}}</string>
 						<reference key="NSSuperview" ref="929871613"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="234227345"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -1236,13 +1232,12 @@ aGFlbCBSb29mA</string>
 				</array>
 				<string key="NSFrameSize">{205, 222}</string>
 				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="869321824"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<string key="NSClassName">NSView</string>
 			</object>
 			<object class="NSScrollView" id="273209926">
-				<nil key="NSNextResponder"/>
+				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSClipView" id="480604756">
@@ -1327,6 +1322,7 @@ aGFlbCBSb29mA</string>
 						<int key="NSvFlags">-2147483392</int>
 						<string key="NSFrame">{{224, 17}, {15, 102}}</string>
 						<reference key="NSSuperview" ref="273209926"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:58</string>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						<reference key="NSTarget" ref="273209926"/>
@@ -1348,6 +1344,7 @@ aGFlbCBSb29mA</string>
 					</object>
 				</array>
 				<string key="NSFrameSize">{725, 652}</string>
+				<reference key="NSSuperview"/>
 				<reference key="NSNextKeyView" ref="480604756"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<int key="NSsFlags">133682</int>
@@ -1703,7 +1700,7 @@ aGFlbCBSb29mA</string>
 						<reference key="source" ref="762046967"/>
 						<reference key="destination" ref="817159785"/>
 					</object>
-					<int key="connectionID">341</int>
+					<int key="connectionID">908</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -6996,7 +6993,7 @@ aGFlbCBSb29mA</string>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">898</int>
+			<int key="maxID">908</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -7041,7 +7038,7 @@ aGFlbCBSb29mA</string>
 					<string key="className">WatchlistWindowController</string>
 					<string key="superclassName">NSWindowController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="addListClicked:">id</string>
+						<string key="addListClicked:">NSButton</string>
 						<string key="addMovieClicked:">NSButton</string>
 						<string key="searchClicked:">id</string>
 						<string key="switchViewClicked:">NSSegmentedControl</string>
@@ -7049,7 +7046,7 @@ aGFlbCBSb29mA</string>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="addListClicked:">
 							<string key="name">addListClicked:</string>
-							<string key="candidateClassName">id</string>
+							<string key="candidateClassName">NSButton</string>
 						</object>
 						<object class="IBActionInfo" key="addMovieClicked:">
 							<string key="name">addMovieClicked:</string>

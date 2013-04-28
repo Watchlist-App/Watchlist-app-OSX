@@ -44,7 +44,7 @@
     
 }
 
-- (IBAction)addListClicked:(id)sender {
+- (IBAction)addListClicked:(NSButton *)sender {
 }
 
 - (IBAction)searchClicked:(id)sender {
@@ -76,9 +76,11 @@
 
 - (IBAction)switchViewClicked:(NSSegmentedControl*)sender {
     if (sender.selectedSegment == 0) {
+        self.watchlistScrollView.bounds = self.postersScrollView.bounds;
         [self.window.contentView replaceSubview:self.postersScrollView with:self.watchlistScrollView];
 
     } else
+        self.postersScrollView.bounds = self.watchlistScrollView.bounds;
     [self.window.contentView replaceSubview:self.watchlistScrollView with:self.postersScrollView];
 }
 

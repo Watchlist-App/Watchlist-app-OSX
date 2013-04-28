@@ -22,12 +22,13 @@
     [self.window close];
     [self.loginWindowController showWindow:self];
     [self.watchlistWindowController showWindow:self];
-    
     //[self.libraryWindowController showWindow:self];
 }
 
 - (IBAction)preferencesMenuClicked:(id)sender {
     NSLog(@"show settings panel");
+    NSBundle *appMainBundle = [NSBundle mainBundle];
+    [appMainBundle loadNibNamed:@"SettingsPanel" owner:self topLevelObjects:nil];
 }
 
 - (LoginWindowController*)loginWindowController{
