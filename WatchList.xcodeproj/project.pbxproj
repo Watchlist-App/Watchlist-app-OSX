@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630AFEC1172DCBB300A1F2ED /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 630AFEC0172DCBB300A1F2ED /* List.m */; };
+		630AFEC4172DCBB300A1F2ED /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 630AFEC3172DCBB300A1F2ED /* Movie.m */; };
+		630AFEC7172DCBB300A1F2ED /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 630AFEC6172DCBB300A1F2ED /* User.m */; };
 		6327558817230D3F0051BAA3 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6327557117230D3F0051BAA3 /* 1.jpg */; };
 		6327558917230D3F0051BAA3 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 6327557217230D3F0051BAA3 /* 10.png */; };
 		6327558A17230D3F0051BAA3 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 6327557317230D3F0051BAA3 /* 11.png */; };
@@ -64,6 +67,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		630AFEBF172DCBB300A1F2ED /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		630AFEC0172DCBB300A1F2ED /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
+		630AFEC2172DCBB300A1F2ED /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		630AFEC3172DCBB300A1F2ED /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		630AFEC5172DCBB300A1F2ED /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		630AFEC6172DCBB300A1F2ED /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6327557117230D3F0051BAA3 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		6327557217230D3F0051BAA3 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
 		6327557317230D3F0051BAA3 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
@@ -248,6 +257,12 @@
 			isa = PBXGroup;
 			children = (
 				63456D641713EE9300787E9B /* WatchList.xcdatamodeld */,
+				630AFEC5172DCBB300A1F2ED /* User.h */,
+				630AFEC6172DCBB300A1F2ED /* User.m */,
+				630AFEC2172DCBB300A1F2ED /* Movie.h */,
+				630AFEC3172DCBB300A1F2ED /* Movie.m */,
+				630AFEBF172DCBB300A1F2ED /* List.h */,
+				630AFEC0172DCBB300A1F2ED /* List.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -451,6 +466,9 @@
 				6396A24717247581009E9F40 /* IMDBFetcher.m in Sources */,
 				63F47AAB17248E1F00F8B322 /* WatchlistWindowController.m in Sources */,
 				638236C01727E11D0081FE7A /* PreferenceController.m in Sources */,
+				630AFEC1172DCBB300A1F2ED /* List.m in Sources */,
+				630AFEC4172DCBB300A1F2ED /* Movie.m in Sources */,
+				630AFEC7172DCBB300A1F2ED /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
