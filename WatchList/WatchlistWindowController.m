@@ -8,80 +8,93 @@
 
 #import "WatchlistWindowController.h"
 #import "IMDBFetcher.h"
+#import "MovieInfoViewController.h"
+#import <Quartz/Quartz.h>
+#import "Movie+IMDB.h"
+#import "SearchViewController.h"
 
 @interface WatchlistWindowController ()
+
 @property (weak) IBOutlet NSView *managedView;
 @property (weak) IBOutlet NSTableView *sidebarTableView;
-@property (strong) IBOutlet NSView *detailedDescriptionView;
 @property (weak) IBOutlet NSCollectionView *postersCollectionView;
-@property (strong) IBOutlet NSArrayController *searchResultsArrayController;
 @property (weak) IBOutlet NSTextField *searchTextField;
 @property (strong) IBOutlet NSViewController *popoverViewController;
 @property (strong) IBOutlet NSPopover *popover;
 @property (strong) IBOutlet NSScrollView *postersScrollView;
-@property (weak) IBOutlet NSProgressIndicator *searchProgressSpinner;
-@property (weak) IBOutlet NSTableView *searchResultsTable;
-@property (strong) IBOutlet NSScrollView *searchResultsScrollView;
-@property (weak) IBOutlet NSScrollView *watchlistScrollView;
 @property (weak) IBOutlet NSTableView *watchlistTable;
+@property (weak) IBOutlet NSImageView *userIconView;
+@property (weak) IBOutlet NSTextField *usernameLabel;
+@property (strong) IBOutlet NSScrollView *watchlistScrollView;
+
+
+@property (strong) NSString *username;
+@property (strong) NSImage *userPicture;
+@property (strong) MovieInfoViewController *movieInfoVC;
+@property (strong) SearchViewController *searchVC;
+
 
 @end
 
 @implementation WatchlistWindowController
 
-
-- (void)windowDidLoad{
-    [super windowDidLoad];
-    [self.window setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"23"]]];
-    //[self.managedView addSubview:self.searchResultsScrollView];
-    NSImage* photo = [NSImage imageNamed:@"band-of-brothers-poster-1.jpg"];
-    NSDictionary *movie = [NSDictionary dictionaryWithObjectsAndKeys:@"spartacus",@"title",@"2013",@"year", photo, @"photo",nil];
-    NSMutableArray *searchResults = [NSMutableArray arrayWithObject:movie];
-    for (int i = 0; i < 100; i++) {
-        [searchResults addObject:movie];
-    }
-    self.searchResultsArrayController.content = searchResults;
+- (void)loadWithUserProfile: (User *)userProfile{
+    self.username = userProfile.login;
+    self.userPicture = userProfile.profilePicture;
+    [self.window setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"woodBackground"]]];
+    [self showWindow:self];
     
 }
 
+
+- (void)windowDidLoad{
+    [super windowDidLoad];
+    
+    self.usernameLabel.stringValue = self.username;
+    self.userIconView.image = self.userPicture;
+    
+    self.watchlistScrollView.frame = self.managedView.frame;
+    [self.window.contentView replaceSubview:self.managedView with:self.watchlistScrollView];
+    self.managedView = self.watchlistScrollView;
+    
+    [self.window.contentView setWantsLayer:YES];
+    self.searchVC = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:[NSBundle mainBundle]];
+
+    
+    
+  
+
+}
+
 - (IBAction)addListClicked:(NSButton *)sender {
+    
 }
 
 - (IBAction)searchClicked:(id)sender {
-    [self.searchProgressSpinner startAnimation:self];
-    dispatch_queue_t fetchQueue = dispatch_queue_create("IMDB Fetch", NULL);
-    dispatch_async(fetchQueue, ^{
-        self.searchResultsArrayController.content = [IMDBFetcher searchMoviesByTitle:self.searchTextField.stringValue];
-        [self.searchResultsArrayController.content enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop){
-            NSURL *imageURL = [NSURL URLWithString:[object valueForKey:@"poster"]];
-            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-            NSImage *posterImage;
-            if (imageData) {
-                posterImage = [[NSImage alloc] initWithData:imageData];
-            } else{
-                posterImage = [NSImage imageNamed:@"NSUser"];
-            }
-            
-            [object setValue:posterImage forKey:@"photo"];
-        }];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.searchProgressSpinner stopAnimation:self];
-        });
-    });
+    NSView *view = [self.searchVC view];
+    view.frame = self.managedView.frame;
+    [self.window.contentView replaceSubview:self.managedView with:view];
+    [self.searchVC searchForMovie:self.searchTextField.stringValue];
 }
+
+
 
 - (IBAction)addMovieClicked:(NSButton*)sender {
     [self.popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSMinYEdge];
 }
 
+
 - (IBAction)switchViewClicked:(NSSegmentedControl*)sender {
     if (sender.selectedSegment == 0) {
-        self.watchlistScrollView.bounds = self.postersScrollView.bounds;
-        [self.window.contentView replaceSubview:self.postersScrollView with:self.watchlistScrollView];
+        self.watchlistScrollView.frame = self.managedView.frame;
+        [[self.window.contentView animator] replaceSubview:self.managedView with:self.watchlistScrollView];
+        self.managedView = self.watchlistScrollView;
 
-    } else
-        self.postersScrollView.bounds = self.watchlistScrollView.bounds;
-    [self.window.contentView replaceSubview:self.watchlistScrollView with:self.postersScrollView];
+    } else{
+        self.postersScrollView.frame = self.managedView.frame;
+        [[self.window.contentView animator] replaceSubview:self.managedView with:self.postersScrollView];
+        self.managedView = self.postersScrollView;
+    }
 }
 
 @end

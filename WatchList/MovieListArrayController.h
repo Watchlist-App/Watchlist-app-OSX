@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "Movie.h"
 
 @interface MovieListArrayController : NSArrayController
 

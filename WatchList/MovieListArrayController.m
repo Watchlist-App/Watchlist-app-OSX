@@ -13,6 +13,7 @@
 -(id)newObject{
     NSImage *image = [NSImage imageNamed:@"constanza.jpg"];
     id newObj = [super newObject];
+    
     int a = rand()%100;
     NSString *title;
     title = [NSString stringWithFormat:@"lel, %d",a];

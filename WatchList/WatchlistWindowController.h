@@ -7,7 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "User.h"
 
 @interface WatchlistWindowController : NSWindowController
-
+@property (strong, nonatomic)NSManagedObjectContext *managedObjectContext;
+- (void)loadWithUserProfile: (User *)userProfile;
 @end

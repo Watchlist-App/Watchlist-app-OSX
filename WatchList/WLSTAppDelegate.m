@@ -21,11 +21,7 @@
     // Insert code here to initialize your application
     [self.window close];
     self.loginWindowController.managedObjectContext = self.managedObjectContext;
-    self.loginWindowController.managedObjectModel = self.managedObjectModel;
-    self.loginWindowController.persistentStoreCoordinator = self.persistentStoreCoordinator;
     [self.loginWindowController showWindow:self];
-    //[self.watchlistWindowController showWindow:self];
-    //[self.libraryWindowController showWindow:self];
 }
 
 - (IBAction)preferencesMenuClicked:(id)sender {
