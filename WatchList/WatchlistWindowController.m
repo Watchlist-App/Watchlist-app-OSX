@@ -7,13 +7,6 @@
 //
 
 #import "WatchlistWindowController.h"
-#import "IMDBFetcher.h"
-#import "MovieInfoViewController.h"
-#import <Quartz/Quartz.h>
-#import "Movie+IMDB.h"
-#import "SearchViewController.h"
-#import "WatchlistViewController.h"
-#import "PostersViewController.h"
 
 @interface WatchlistWindowController ()
 
@@ -94,9 +87,32 @@
 
 
 
+
+//delegate methods
+- (void)selectedMovieWithID:(NSString *)imdbID{
+    NSLog(@"%@",imdbID);
+    NSDictionary *imdbDictionary = [IMDBFetcher searchMoiveByID:imdbID];
+    [Movie movieWithIMDBDictionary:imdbDictionary inManagedObjectContext:self.managedObjectContext];
+}
+
+- (void)infoForMovie:(Movie *)movie{
+    [self.movieInfoVC setMovie:movie];
+    self.movieInfoVC.view.frame = self.managedView.frame;
+    [[[self.window contentView] animator] replaceSubview:self.managedView with:self.movieInfoVC.view];
+    self.managedView = self.movieInfoVC.view;
+}
+
+- (void)backToListPressed{
+    self.watchlistVC.view.frame = self.managedView.frame;
+    [[self.window.contentView animator] replaceSubview:self.managedView with:self.watchlistVC.view];
+    self.managedView = self.watchlistVC.view;
+}
+
+//Lazy instantiation getters
 - (MovieInfoViewController *)movieInfoVC{
     if (!_movieInfoVC) {
-        _movieInfoVC  = [[MovieInfoViewController alloc] initWithNibName:@"MovieInfoViewController" bundle:[NSBundle mainBundle]];
+        _movieInfoVC  = [[MovieInfoViewController alloc] initWithNibName:@"MovieInfoView" bundle:[NSBundle mainBundle]];
+        _movieInfoVC.delegate = self;
     }
     return _movieInfoVC;
 }
@@ -112,6 +128,7 @@
 - (WatchlistViewController *)watchlistVC{
     if (!_watchlistVC) {
         _watchlistVC = [[WatchlistViewController alloc] initInContext:self.managedObjectContext];
+        _watchlistVC.delegate = self;
     }
     return _watchlistVC;
 }
@@ -119,16 +136,9 @@
 - (PostersViewController *)posterVC{
     if (!_posterVC) {
         _posterVC = [[PostersViewController alloc] initInContext:self.managedObjectContext];
+        _posterVC.delegate = self;
     }
     return _posterVC;
-}
-
-//delegate methods
-- (void)selectedMovieWithID:(NSString *)imdbID{
-    NSLog(@"%@",imdbID);
-    NSDictionary *imdbDictionary = [IMDBFetcher searchMoiveByID:imdbID];
-    [Movie movieWithIMDBDictionary:imdbDictionary inManagedObjectContext:self.managedObjectContext];
-    NSLog([imdbDictionary description]);
 }
 
 @end

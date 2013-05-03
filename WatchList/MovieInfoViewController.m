@@ -26,22 +26,20 @@
 
 - (void)setMovie:(Movie *)movie{
     self.posterImageView.image = movie.posterPicture;
-    self.titleLabel.stringValue = movie.title;
-    self.yearLabel.stringValue = movie.year.stringValue;
+    self.titleLabel.stringValue = [movie.title description];
+    self.yearLabel.stringValue = [movie.year.stringValue description];
     self.studioLabel.stringValue = @"NOPE";
-    self.genreLabel.stringValue = movie.genre;
-    self.runTimeLabel.stringValue = movie.runtime;
-    self.actorsLabel.stringValue = movie.actors;
-    self.directorLabel.stringValue = movie.directors;
+    self.genreLabel.stringValue =  @"nope";//[movie.genre description];
+    self.runTimeLabel.stringValue = @"NOPE";//[movie.runtime description];
+    self.actorsLabel.stringValue = @"nope";//[movie.actors description];
+    self.directorLabel.stringValue = @"nope";//[movie.directors description];
     self.producersLabel.stringValue = @"NOPE";
-    self.plotLabel.stringValue = movie.plot;
+    self.plotLabel.stringValue = [movie.plot description];
     
 }
 
-- (NSView *)viewForMovie:(Movie *)movie{
-    [self setMovie:movie];
-    return self.view;
-    
+- (IBAction)backButtonPressed:(id)sender {
+    [self.delegate backToListPressed];
 }
 
 @end

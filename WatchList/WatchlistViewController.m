@@ -9,6 +9,8 @@
 #import "WatchlistViewController.h"
 
 @interface WatchlistViewController ()
+@property (strong) IBOutlet NSArrayController *watchlistAC;
+@property (weak) IBOutlet NSTableView *watchlistTableView;
 @end
 
 @implementation WatchlistViewController
@@ -30,6 +32,12 @@
     }
     
     return self;
+}
+
+- (IBAction)infoButtonPressed:(id)sender {
+    NSUInteger index = [self.watchlistTableView rowForView:sender];
+    Movie *movie = [self.watchlistAC.content objectAtIndex:index];
+    [self.delegate infoForMovie:movie];
 }
 
 @end

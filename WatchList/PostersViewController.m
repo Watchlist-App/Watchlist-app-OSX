@@ -10,6 +10,8 @@
 
 @interface PostersViewController ()
 @property (weak) IBOutlet NSScrollView *postersScrollView;
+@property (weak) IBOutlet NSCollectionView *postersCV;
+@property (strong) IBOutlet NSArrayController *watchlistAC;
 
 @end
 
@@ -38,5 +40,13 @@
 - (void)setBackgroundImageNamed:(NSString *)imageName{
     self.postersScrollView.backgroundColor = [NSColor colorWithPatternImage:[NSImage imageNamed:imageName]];
 }
+
+- (IBAction)viewInfoPressed:(id)sender {
+    id collectionViewItem = [sender superview];
+    NSInteger index = [[self.postersCV subviews]  indexOfObject:collectionViewItem];
+    Movie *movie = [self.watchlistAC.content objectAtIndex:index];
+    [self.delegate infoForMovie:movie];
+}
+
 
 @end

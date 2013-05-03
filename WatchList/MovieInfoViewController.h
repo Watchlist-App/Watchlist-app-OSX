@@ -9,7 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import "Movie+IMDB.h"
 
+@class MovieInfoViewController;
+
+@protocol MovieInfoDelegate <NSObject>
+- (void)backToListPressed;
+@end
+
+
 @interface MovieInfoViewController : NSViewController
+@property (nonatomic, assign) id<MovieInfoDelegate> delegate;
 - (void)setMovie: (Movie *)movie;
-- (NSView *)viewForMovie: (Movie *)movie;
 @end

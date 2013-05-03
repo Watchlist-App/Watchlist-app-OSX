@@ -33,6 +33,7 @@
 - (LoginWindowController*)loginWindowController{
     if (!_loginWindowController) {
         _loginWindowController = [[LoginWindowController alloc] initWithWindowNibName:@"LoginWindow"];
+        _loginWindowController.delegate = self;
     }
     return _loginWindowController;
 }
@@ -44,6 +45,24 @@
     }
     return _watchlistWindowController;
 }
+
+
+- (void)logInUser:(User *)user{
+    [self.watchlistWindowController loadWithUserProfile:user];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.dm.WatchList" in the user's Application Support directory.
