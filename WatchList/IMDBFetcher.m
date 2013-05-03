@@ -11,7 +11,7 @@
 @implementation IMDBFetcher
 
 + (NSArray *)executeIMDBFetch:(NSString *)query{
-    query = [NSString stringWithFormat:@"http://imdbapi.org/?%@&type=json&plot=none&episode=0&limit=10&yg=0&mt=none&lang=en-US&offset=&aka=simple&release=simple&business=0&tech=0",query];
+    query = [NSString stringWithFormat:@"http://imdbapi.org/?%@&type=json&plot=simple&episode=0&limit=10&yg=0&mt=none&lang=en-US&offset=&aka=simple&release=simple&business=0&tech=0",query];
     query = [query stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSData *jsonData = [NSData dataWithContentsOfURL:[NSURL URLWithString:query]];
     if (!jsonData) {

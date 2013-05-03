@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "User.h"
+#import "SearchViewController.h"
 
-@interface WatchlistWindowController : NSWindowController
+@interface WatchlistWindowController : NSWindowController<SearchDelegate>
 @property (strong, nonatomic)NSManagedObjectContext *managedObjectContext;
 - (void)loadWithUserProfile: (User *)userProfile;
 @end

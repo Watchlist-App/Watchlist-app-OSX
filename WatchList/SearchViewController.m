@@ -20,8 +20,6 @@
 @implementation SearchViewController
 
 
-
-
 - (void)searchForMovie:(NSString *)movieTitle{
     [self.searchResultsTable setHidden:YES];
     [self.progressIndicator startAnimation:self];
@@ -46,6 +44,13 @@
 
         });
     });
+
+}
+
+- (IBAction)addButtonPressed:(id)sender {
+    NSUInteger index = [self.searchResultsTable rowForView:sender];
+    NSString *imdbID = [[self.searchResultsArrayController.content objectAtIndex:index] valueForKey:@"imdb_id"];
+    [self.delegate selectedMovieWithID: imdbID];
 
 }
 
@@ -77,5 +82,6 @@
     return self.searchResultsArrayController.content;
 
 }
+
 
 @end

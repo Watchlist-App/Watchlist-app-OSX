@@ -13,9 +13,10 @@
 
 + (Movie *)movieWithIMDBDictionary:(NSDictionary *)imdbDictiory inManagedObjectContext:(NSManagedObjectContext *)context{
     Movie *movie = nil;
-        
+    NSLog(@"inserting movie");
+    
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Movie"];
-    //request.predicate = [NSPredicate predicateWithFormat:@"unique = %@", [photoDictionary[FLICKR_PHOTO_ID] description]];
+    request.predicate = [NSPredicate predicateWithFormat:@"imdbID = %@", [imdbDictiory valueForKey:@"imdb_id"]];
         
     NSError *error = nil;
     NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -27,11 +28,25 @@
         movie = [NSEntityDescription insertNewObjectForEntityForName:@"Movie" inManagedObjectContext:context];
         movie.title = [imdbDictiory valueForKey:@"title"];
         movie.year = [imdbDictiory valueForKey:@"year"];
+        movie.rating = [imdbDictiory valueForKey:@"rating"];
+        movie.plot = [imdbDictiory valueForKey:@"plot_simple"];
+        
+        //fetching poster
+        NSURL *imageURL = [NSURL URLWithString:[imdbDictiory valueForKey:@"poster"]];
+        NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
+        NSImage *posterImage;
+        if (imageData) {
+            posterImage = [[NSImage alloc] initWithData:imageData];
+        } else{
+            posterImage = [NSImage imageNamed:@"NSUser"];
+        }
+        movie.posterPicture = posterImage;
         
     } else { // found the Photo, just return it from the list of matches (which there will only be one of)
         movie = [matches lastObject];
     }
     
+    NSLog([movie description]);
     return movie;
 
 }

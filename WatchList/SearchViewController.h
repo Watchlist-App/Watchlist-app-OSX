@@ -8,7 +8,20 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class SearchViewController;
+
+@protocol SearchDelegate <NSObject>
+
+- (void)selectedMovieWithID:(NSString *)imdbID;
+
+@end
+
+
 @interface SearchViewController : NSViewController
+
+@property (nonatomic,assign) id<SearchDelegate> delegate;
+
+
 - (void)searchForMovie:(NSString *)movieTitle;
 - (NSArray *)searchResultsForMovie:(NSString *)movieTitle;
 

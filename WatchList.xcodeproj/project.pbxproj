@@ -53,6 +53,12 @@
 		63456D9B1713F36400787E9B /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63456D9A1713F36400787E9B /* Quartz.framework */; };
 		63456DA61713F7E600787E9B /* LoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63456DA51713F7E500787E9B /* LoginWindowController.m */; };
 		63456DA81713F98000787E9B /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63456DA71713F97F00787E9B /* LoginWindow.xib */; };
+		636FAA521733B4A100260DC3 /* WatchlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636FAA501733B4A100260DC3 /* WatchlistViewController.m */; };
+		636FAA531733B4A100260DC3 /* WatchlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636FAA511733B4A100260DC3 /* WatchlistViewController.xib */; };
+		636FAA571733B4C300260DC3 /* PostersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636FAA551733B4C300260DC3 /* PostersViewController.m */; };
+		636FAA581733B4C300260DC3 /* PostersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636FAA561733B4C300260DC3 /* PostersViewController.xib */; };
+		636FAA5D1734414200260DC3 /* watchlist.icns in Resources */ = {isa = PBXBuildFile; fileRef = 636FAA5B1734414200260DC3 /* watchlist.icns */; };
+		636FAA5E1734414200260DC3 /* watchlist1.icns in Resources */ = {isa = PBXBuildFile; fileRef = 636FAA5C1734414200260DC3 /* watchlist1.icns */; };
 		638236C01727E11D0081FE7A /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638236BE1727E11D0081FE7A /* PreferenceController.m */; };
 		638236C11727E11D0081FE7A /* PreferenceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638236BF1727E11D0081FE7A /* PreferenceController.xib */; };
 		638544AB1714263E006DE389 /* SidebarArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638544AA1714263E006DE389 /* SidebarArrayController.m */; };
@@ -138,6 +144,14 @@
 		63456DA41713F7E500787E9B /* LoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindowController.h; sourceTree = "<group>"; };
 		63456DA51713F7E500787E9B /* LoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindowController.m; sourceTree = "<group>"; };
 		63456DA71713F97F00787E9B /* LoginWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginWindow.xib; sourceTree = "<group>"; };
+		636FAA4F1733B4A100260DC3 /* WatchlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistViewController.h; sourceTree = "<group>"; };
+		636FAA501733B4A100260DC3 /* WatchlistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchlistViewController.m; sourceTree = "<group>"; };
+		636FAA511733B4A100260DC3 /* WatchlistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchlistViewController.xib; sourceTree = "<group>"; };
+		636FAA541733B4C300260DC3 /* PostersViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostersViewController.h; sourceTree = "<group>"; };
+		636FAA551733B4C300260DC3 /* PostersViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostersViewController.m; sourceTree = "<group>"; };
+		636FAA561733B4C300260DC3 /* PostersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostersViewController.xib; sourceTree = "<group>"; };
+		636FAA5B1734414200260DC3 /* watchlist.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = watchlist.icns; sourceTree = "<group>"; };
+		636FAA5C1734414200260DC3 /* watchlist1.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = watchlist1.icns; sourceTree = "<group>"; };
 		638236BD1727E11D0081FE7A /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		638236BE1727E11D0081FE7A /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
 		638236BF1727E11D0081FE7A /* PreferenceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceController.xib; sourceTree = "<group>"; };
@@ -346,6 +360,8 @@
 				63456D7D1713EFF100787E9B /* bg4.png */,
 				6327557017230D3F0051BAA3 /* bgs */,
 				63456D7E1713EFF100787E9B /* bg5.png */,
+				636FAA5B1734414200260DC3 /* watchlist.icns */,
+				636FAA5C1734414200260DC3 /* watchlist1.icns */,
 				63456D7F1713EFF100787E9B /* kindajean.png */,
 				63456D801713EFF100787E9B /* ecailles.png */,
 				63456D811713EFF100787E9B /* constanza.jpg */,
@@ -369,9 +385,12 @@
 		63456D901713F05D00787E9B /* Views And Windows */ = {
 			isa = PBXGroup;
 			children = (
+				639AF849173314590088B9B3 /* SearchViewController.xib */,
 				638236BF1727E11D0081FE7A /* PreferenceController.xib */,
 				63F47AAA17248E1F00F8B322 /* WatchlistWindow.xib */,
 				639AF83A1732E9D70088B9B3 /* MovieInfoView.xib */,
+				636FAA511733B4A100260DC3 /* WatchlistViewController.xib */,
+				636FAA561733B4C300260DC3 /* PostersViewController.xib */,
 			);
 			name = "Views And Windows";
 			sourceTree = "<group>";
@@ -389,7 +408,10 @@
 				639AF8381732E9C00088B9B3 /* MovieInfoViewController.m */,
 				639AF847173314580088B9B3 /* SearchViewController.h */,
 				639AF848173314590088B9B3 /* SearchViewController.m */,
-				639AF849173314590088B9B3 /* SearchViewController.xib */,
+				636FAA4F1733B4A100260DC3 /* WatchlistViewController.h */,
+				636FAA501733B4A100260DC3 /* WatchlistViewController.m */,
+				636FAA541733B4C300260DC3 /* PostersViewController.h */,
+				636FAA551733B4C300260DC3 /* PostersViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -517,6 +539,10 @@
 				63D31F281731520C00BB71B0 /* vintage.jpg in Resources */,
 				639AF83B1732E9D70088B9B3 /* MovieInfoView.xib in Resources */,
 				639AF84B173314590088B9B3 /* SearchViewController.xib in Resources */,
+				636FAA531733B4A100260DC3 /* WatchlistViewController.xib in Resources */,
+				636FAA581733B4C300260DC3 /* PostersViewController.xib in Resources */,
+				636FAA5D1734414200260DC3 /* watchlist.icns in Resources */,
+				636FAA5E1734414200260DC3 /* watchlist1.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +575,8 @@
 				639AF8391732E9C00088B9B3 /* MovieInfoViewController.m in Sources */,
 				639AF8411732F1B50088B9B3 /* Movie.m in Sources */,
 				639AF84A173314590088B9B3 /* SearchViewController.m in Sources */,
+				636FAA521733B4A100260DC3 /* WatchlistViewController.m in Sources */,
+				636FAA571733B4C300260DC3 /* PostersViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
