@@ -21,7 +21,6 @@
 
 
 - (void)searchForMovie:(NSString *)movieTitle{
-    [self.searchResultsTable setHidden:YES];
     [self.progressIndicator startAnimation:self];
     dispatch_queue_t fetchQueue = dispatch_queue_create("IMDB Fetch", NULL);
     dispatch_async(fetchQueue, ^{
@@ -40,8 +39,6 @@
         }];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.progressIndicator stopAnimation:self];
-            [self.searchResultsTable setHidden:NO];
-
         });
     });
 

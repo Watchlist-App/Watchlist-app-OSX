@@ -51,6 +51,16 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">268</int>
 				<array class="NSMutableArray" key="NSSubviews">
+					<object class="NSProgressIndicator" id="508359067">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{360, 245}, {32, 32}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<string key="NSReuseIdentifierKey">_NS:945</string>
+						<int key="NSpiFlags">28682</int>
+						<double key="NSMaxValue">100</double>
+					</object>
 					<object class="NSScrollView" id="248626296">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">268</int>
@@ -226,16 +236,6 @@
 						<double key="NSMinMagnification">0.25</double>
 						<double key="NSMaxMagnification">4</double>
 						<double key="NSMagnification">1</double>
-					</object>
-					<object class="NSProgressIndicator" id="508359067">
-						<reference key="NSNextResponder" ref="1005"/>
-						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{360, 245}, {32, 32}}</string>
-						<reference key="NSSuperview" ref="1005"/>
-						<reference key="NSWindow"/>
-						<string key="NSReuseIdentifierKey">_NS:945</string>
-						<int key="NSpiFlags">28682</int>
-						<double key="NSMaxValue">100</double>
 					</object>
 				</array>
 				<string key="NSFrameSize">{737, 507}</string>

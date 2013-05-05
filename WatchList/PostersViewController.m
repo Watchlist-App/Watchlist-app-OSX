@@ -45,7 +45,7 @@
     id collectionViewItem = [sender superview];
     NSInteger index = [[self.postersCV subviews]  indexOfObject:collectionViewItem];
     Movie *movie = [self.watchlistAC.content objectAtIndex:index];
-    [self.delegate infoForMovie:movie];
+    [self.delegate pressedInfoForMovie:movie];
 }
 
 

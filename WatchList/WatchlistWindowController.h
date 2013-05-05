@@ -14,9 +14,11 @@
 #import "MovieInfoViewController.h"
 #import "PostersViewController.h"
 #import "IMDBFetcher.h"
+#import "WatchlistWindowDelegate.h"
+#import "WatchlistDelegate.h"
 
-@interface WatchlistWindowController : NSWindowController<SearchDelegate, WatchlistTableDelegate, MovieInfoDelegate, PostersCollectionViewDelegate>
+@interface WatchlistWindowController : NSWindowController<SearchDelegate, WatchlistDelegate, MovieInfoDelegate, NSTableViewDelegate>
 @property (strong, nonatomic)NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, assign) id<WatchlistWindowDelegate> delegate;
 - (void)loadWithUserProfile: (User *)userProfile;
-- (void)infoForMovie:(Movie *)movie;
 @end

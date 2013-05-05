@@ -152,6 +152,11 @@
 		636FAA561733B4C300260DC3 /* PostersViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostersViewController.xib; sourceTree = "<group>"; };
 		636FAA5B1734414200260DC3 /* watchlist.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = watchlist.icns; sourceTree = "<group>"; };
 		636FAA5C1734414200260DC3 /* watchlist1.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = watchlist1.icns; sourceTree = "<group>"; };
+		636FAA6217345CB300260DC3 /* MovieInfoDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieInfoDelegate.h; sourceTree = "<group>"; };
+		636FAA6317345D2800260DC3 /* SearchDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchDelegate.h; sourceTree = "<group>"; };
+		636FAA6617345E2800260DC3 /* WatchlistDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistDelegate.h; sourceTree = "<group>"; };
+		636FAA6717345EF600260DC3 /* LoginWindowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindowDelegate.h; sourceTree = "<group>"; };
+		636FAA6817345F3D00260DC3 /* WatchlistWindowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistWindowDelegate.h; sourceTree = "<group>"; };
 		638236BD1727E11D0081FE7A /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		638236BE1727E11D0081FE7A /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
 		638236BF1727E11D0081FE7A /* PreferenceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceController.xib; sourceTree = "<group>"; };
@@ -278,6 +283,7 @@
 		63456D521713EE9300787E9B /* WatchList */ = {
 			isa = PBXGroup;
 			children = (
+				636FAA6117345C4D00260DC3 /* Protocols */,
 				6396A24417247564009E9F40 /* DataFetchers */,
 				63456D971713F0C000787E9B /* ViewControllers */,
 				63456D901713F05D00787E9B /* Views And Windows */,
@@ -414,6 +420,18 @@
 				636FAA551733B4C300260DC3 /* PostersViewController.m */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		636FAA6117345C4D00260DC3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				636FAA6217345CB300260DC3 /* MovieInfoDelegate.h */,
+				636FAA6817345F3D00260DC3 /* WatchlistWindowDelegate.h */,
+				636FAA6317345D2800260DC3 /* SearchDelegate.h */,
+				636FAA6617345E2800260DC3 /* WatchlistDelegate.h */,
+				636FAA6717345EF600260DC3 /* LoginWindowDelegate.h */,
+			);
+			name = Protocols;
 			sourceTree = "<group>";
 		};
 		6396A24417247564009E9F40 /* DataFetchers */ = {

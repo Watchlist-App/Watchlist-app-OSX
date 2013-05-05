@@ -18,9 +18,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    // Insert code here to initialize your application
     [self.window close];
-    self.loginWindowController.managedObjectContext = self.managedObjectContext;
     [self.loginWindowController showWindow:self];
 }
 
@@ -34,6 +32,7 @@
     if (!_loginWindowController) {
         _loginWindowController = [[LoginWindowController alloc] initWithWindowNibName:@"LoginWindow"];
         _loginWindowController.delegate = self;
+        _loginWindowController.managedObjectContext = self.managedObjectContext;
     }
     return _loginWindowController;
 }
@@ -42,16 +41,24 @@
 - (WatchlistWindowController*)watchlistWindowController{
     if (!_watchlistWindowController) {
         _watchlistWindowController = [[WatchlistWindowController alloc] initWithWindowNibName:@"WatchlistWindow"];
+        _watchlistWindowController.managedObjectContext = self.managedObjectContext;
+        _watchlistWindowController.delegate = self;
     }
     return _watchlistWindowController;
 }
 
 
-- (void)logInUser:(User *)user{
+- (void)loggedInUser:(User *)user{
+    [self.loginWindowController close];
+    self.loginWindowController = nil;
     [self.watchlistWindowController loadWithUserProfile:user];
 }
 
-
+- (void)userLoggedOut{
+    [self.watchlistWindowController close];
+    self.watchlistWindowController = nil;
+    [self.loginWindowController showWindow:self];
+}
 
 
 

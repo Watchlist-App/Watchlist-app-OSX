@@ -7,6 +7,7 @@
 //
 
 #import "SidebarArrayController.h"
+#import "List+Create.h"
 
 @implementation SidebarArrayController
 

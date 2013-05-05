@@ -8,17 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Movie+IMDB.h"
-
-@class WatchlistViewController;
-
-@protocol WatchlistTableDelegate <NSObject>
-- (void)infoForMovie:(Movie *)movie;
-@end
+#import "WatchlistDelegate.h"
 
 
 @interface WatchlistViewController : NSViewController
 
-@property (nonatomic,assign) id<WatchlistTableDelegate> delegate;
+@property (nonatomic,assign) id<WatchlistDelegate> delegate;
 @property (strong) NSManagedObjectContext *managedObjectContext;
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil inContext:(NSManagedObjectContext *)context;
 - (id)initInContext:(NSManagedObjectContext *)context;

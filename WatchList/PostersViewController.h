@@ -8,17 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Movie+IMDB.h"
-@class PostersViewController;
-
-
-@protocol PostersCollectionViewDelegate <NSObject>
--(void) infoForMovie:(Movie *)movie;
-@end
+#import "WatchlistDelegate.h"
 
 
 @interface PostersViewController : NSViewController
 
-@property (nonatomic, assign) id <PostersCollectionViewDelegate> delegate;
+@property (nonatomic, assign) id <WatchlistDelegate> delegate;
 @property (strong) NSManagedObjectContext *managedObjectContext;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil inContext:(NSManagedObjectContext *)context;
