@@ -19,5 +19,6 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil inContext:(NSManagedObjectContext *)context;
 - (id)initInContext:(NSManagedObjectContext *)context;
 - (void)setBackgroundImageNamed:(NSString *)imageName;
+- (void)setContentSet:(NSSet *)set;
 
 @end

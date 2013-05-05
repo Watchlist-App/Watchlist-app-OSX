@@ -21,6 +21,8 @@
 
 
 - (void)searchForMovie:(NSString *)movieTitle{
+    [self.searchResultsTable setHidden:YES];
+
     [self.progressIndicator startAnimation:self];
     dispatch_queue_t fetchQueue = dispatch_queue_create("IMDB Fetch", NULL);
     dispatch_async(fetchQueue, ^{
@@ -39,6 +41,8 @@
         }];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.progressIndicator stopAnimation:self];
+            [self.searchResultsTable setHidden:NO];
+
         });
     });
 
@@ -47,6 +51,7 @@
 - (IBAction)addButtonPressed:(id)sender {
     NSUInteger index = [self.searchResultsTable rowForView:sender];
     NSString *imdbID = [[self.searchResultsArrayController.content objectAtIndex:index] valueForKey:@"imdb_id"];
+    [self.searchResultsArrayController removeObjectAtArrangedObjectIndex:index];
     [self.delegate selectedMovieWithID: imdbID];
 
 }

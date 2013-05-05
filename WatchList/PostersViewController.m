@@ -12,6 +12,8 @@
 @property (weak) IBOutlet NSScrollView *postersScrollView;
 @property (weak) IBOutlet NSCollectionView *postersCV;
 @property (strong) IBOutlet NSArrayController *watchlistAC;
+@property (strong) NSSet *watchlist;
+
 
 @end
 
@@ -48,5 +50,8 @@
     [self.delegate pressedInfoForMovie:movie];
 }
 
+- (void)setContentSet:(NSSet *)set{
+    self.watchlist = set;
+}
 
 @end

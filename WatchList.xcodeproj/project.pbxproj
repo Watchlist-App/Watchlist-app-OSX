@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		630AFEC1172DCBB300A1F2ED /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 630AFEC0172DCBB300A1F2ED /* List.m */; };
-		630AFEC7172DCBB300A1F2ED /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 630AFEC6172DCBB300A1F2ED /* User.m */; };
 		6327558817230D3F0051BAA3 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6327557117230D3F0051BAA3 /* 1.jpg */; };
 		6327558917230D3F0051BAA3 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = 6327557217230D3F0051BAA3 /* 10.png */; };
 		6327558A17230D3F0051BAA3 /* 11.png in Resources */ = {isa = PBXBuildFile; fileRef = 6327557317230D3F0051BAA3 /* 11.png */; };
@@ -53,6 +51,10 @@
 		63456D9B1713F36400787E9B /* Quartz.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63456D9A1713F36400787E9B /* Quartz.framework */; };
 		63456DA61713F7E600787E9B /* LoginWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63456DA51713F7E500787E9B /* LoginWindowController.m */; };
 		63456DA81713F98000787E9B /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63456DA71713F97F00787E9B /* LoginWindow.xib */; };
+		6346222A173661AC00D0F82C /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 63462229173661AC00D0F82C /* List.m */; };
+		6346222D173661AC00D0F82C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6346222C173661AC00D0F82C /* User.m */; };
+		63462230173661AC00D0F82C /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6346222F173661AC00D0F82C /* Movie.m */; };
+		63462233173671AD00D0F82C /* WhiteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63462232173671AD00D0F82C /* WhiteView.m */; };
 		636FAA521733B4A100260DC3 /* WatchlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636FAA501733B4A100260DC3 /* WatchlistViewController.m */; };
 		636FAA531733B4A100260DC3 /* WatchlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636FAA511733B4A100260DC3 /* WatchlistViewController.xib */; };
 		636FAA571733B4C300260DC3 /* PostersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636FAA551733B4C300260DC3 /* PostersViewController.m */; };
@@ -66,7 +68,6 @@
 		6396A24717247581009E9F40 /* IMDBFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6396A24617247581009E9F40 /* IMDBFetcher.m */; };
 		639AF8391732E9C00088B9B3 /* MovieInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639AF8381732E9C00088B9B3 /* MovieInfoViewController.m */; };
 		639AF83B1732E9D70088B9B3 /* MovieInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639AF83A1732E9D70088B9B3 /* MovieInfoView.xib */; };
-		639AF8411732F1B50088B9B3 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 639AF8401732F1B50088B9B3 /* Movie.m */; };
 		639AF84A173314590088B9B3 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639AF848173314590088B9B3 /* SearchViewController.m */; };
 		639AF84B173314590088B9B3 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639AF849173314590088B9B3 /* SearchViewController.xib */; };
 		63AE1DBF17327118004A3582 /* FandangoFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 63AE1DBE17327118004A3582 /* FandangoFetcher.m */; };
@@ -87,10 +88,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		630AFEBF172DCBB300A1F2ED /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
-		630AFEC0172DCBB300A1F2ED /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
-		630AFEC5172DCBB300A1F2ED /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		630AFEC6172DCBB300A1F2ED /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6327557117230D3F0051BAA3 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		6327557217230D3F0051BAA3 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
 		6327557317230D3F0051BAA3 /* 11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 11.png; sourceTree = "<group>"; };
@@ -144,6 +141,14 @@
 		63456DA41713F7E500787E9B /* LoginWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindowController.h; sourceTree = "<group>"; };
 		63456DA51713F7E500787E9B /* LoginWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginWindowController.m; sourceTree = "<group>"; };
 		63456DA71713F97F00787E9B /* LoginWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginWindow.xib; sourceTree = "<group>"; };
+		63462228173661AC00D0F82C /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		63462229173661AC00D0F82C /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
+		6346222B173661AC00D0F82C /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		6346222C173661AC00D0F82C /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		6346222E173661AC00D0F82C /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		6346222F173661AC00D0F82C /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		63462231173671AD00D0F82C /* WhiteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteView.h; sourceTree = "<group>"; };
+		63462232173671AD00D0F82C /* WhiteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiteView.m; sourceTree = "<group>"; };
 		636FAA4F1733B4A100260DC3 /* WatchlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistViewController.h; sourceTree = "<group>"; };
 		636FAA501733B4A100260DC3 /* WatchlistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchlistViewController.m; sourceTree = "<group>"; };
 		636FAA511733B4A100260DC3 /* WatchlistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchlistViewController.xib; sourceTree = "<group>"; };
@@ -169,8 +174,6 @@
 		639AF8371732E9C00088B9B3 /* MovieInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieInfoViewController.h; sourceTree = "<group>"; };
 		639AF8381732E9C00088B9B3 /* MovieInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieInfoViewController.m; sourceTree = "<group>"; };
 		639AF83A1732E9D70088B9B3 /* MovieInfoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieInfoView.xib; sourceTree = "<group>"; };
-		639AF83F1732F1B50088B9B3 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
-		639AF8401732F1B50088B9B3 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		639AF847173314580088B9B3 /* SearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
 		639AF848173314590088B9B3 /* SearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		639AF849173314590088B9B3 /* SearchViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
@@ -313,18 +316,18 @@
 			isa = PBXGroup;
 			children = (
 				63456D641713EE9300787E9B /* WatchList.xcdatamodeld */,
-				639AF83F1732F1B50088B9B3 /* Movie.h */,
-				639AF8401732F1B50088B9B3 /* Movie.m */,
-				630AFEC5172DCBB300A1F2ED /* User.h */,
-				630AFEC6172DCBB300A1F2ED /* User.m */,
+				6346222E173661AC00D0F82C /* Movie.h */,
+				6346222F173661AC00D0F82C /* Movie.m */,
+				6346222B173661AC00D0F82C /* User.h */,
+				6346222C173661AC00D0F82C /* User.m */,
+				63462228173661AC00D0F82C /* List.h */,
+				63462229173661AC00D0F82C /* List.m */,
 				63D31F361731785F00BB71B0 /* User+Create.h */,
 				63D31F371731785F00BB71B0 /* User+Create.m */,
 				63D31F301731780700BB71B0 /* List+Create.h */,
 				63D31F311731780700BB71B0 /* List+Create.m */,
 				63D31F391731787200BB71B0 /* Movie+IMDB.h */,
 				63D31F3A1731787200BB71B0 /* Movie+IMDB.m */,
-				630AFEBF172DCBB300A1F2ED /* List.h */,
-				630AFEC0172DCBB300A1F2ED /* List.m */,
 			);
 			name = CoreData;
 			sourceTree = "<group>";
@@ -418,6 +421,8 @@
 				636FAA501733B4A100260DC3 /* WatchlistViewController.m */,
 				636FAA541733B4C300260DC3 /* PostersViewController.h */,
 				636FAA551733B4C300260DC3 /* PostersViewController.m */,
+				63462231173671AD00D0F82C /* WhiteView.h */,
+				63462232173671AD00D0F82C /* WhiteView.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -582,8 +587,6 @@
 				6396A24717247581009E9F40 /* IMDBFetcher.m in Sources */,
 				63F47AAB17248E1F00F8B322 /* WatchlistWindowController.m in Sources */,
 				638236C01727E11D0081FE7A /* PreferenceController.m in Sources */,
-				630AFEC1172DCBB300A1F2ED /* List.m in Sources */,
-				630AFEC7172DCBB300A1F2ED /* User.m in Sources */,
 				63D31F321731780700BB71B0 /* List+Create.m in Sources */,
 				63D31F381731785F00BB71B0 /* User+Create.m in Sources */,
 				63D31F3B1731787200BB71B0 /* Movie+IMDB.m in Sources */,
@@ -591,10 +594,13 @@
 				63AE1DBF17327118004A3582 /* FandangoFetcher.m in Sources */,
 				63AE1DC217327131004A3582 /* AmazonFetcher.m in Sources */,
 				639AF8391732E9C00088B9B3 /* MovieInfoViewController.m in Sources */,
-				639AF8411732F1B50088B9B3 /* Movie.m in Sources */,
 				639AF84A173314590088B9B3 /* SearchViewController.m in Sources */,
 				636FAA521733B4A100260DC3 /* WatchlistViewController.m in Sources */,
 				636FAA571733B4C300260DC3 /* PostersViewController.m in Sources */,
+				6346222A173661AC00D0F82C /* List.m in Sources */,
+				6346222D173661AC00D0F82C /* User.m in Sources */,
+				63462230173661AC00D0F82C /* Movie.m in Sources */,
+				63462233173671AD00D0F82C /* WhiteView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

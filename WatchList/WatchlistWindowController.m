@@ -65,17 +65,17 @@
     self.userIcon.image = self.user.profilePicture;
     
     [self.window.contentView setWantsLayer:YES];
-    
+    [self.sidebarTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
     self.watchlistVC.view.frame = self.managedView.frame;
     [self.window.contentView replaceSubview:self.managedView with:self.watchlistVC.view];
-    self.managedView = self.watchlistVC.view;
-    
+    self.managedView = self.watchlistVC.view;    
 }
 
 
 //actions
 
 - (IBAction)userIconClicked:(NSButton *)sender {
+
     self.popoverViewController.view = self.userIconPopover;
     [self.popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSMinYEdge];
 }
@@ -103,6 +103,9 @@
 - (void)tableViewSelectionDidChange:(NSNotification *)notification{
     NSUInteger index = self.sidebarTableView.selectedRow;
     self.selectedList = [self.sidebarAC.content objectAtIndex:index];
+    [self.watchlistVC setContentSet:self.selectedList.movies];
+    [self.posterVC setContentSet:self.selectedList.movies];
+
 }
 
 
@@ -140,8 +143,6 @@
     }
     
 }
-
-
 
 
 

@@ -11,6 +11,7 @@
 @interface WatchlistViewController ()
 @property (strong) IBOutlet NSArrayController *watchlistAC;
 @property (weak) IBOutlet NSTableView *watchlistTableView;
+@property (strong) NSSet *watchlist;
 @end
 
 @implementation WatchlistViewController
@@ -39,5 +40,10 @@
     Movie *movie = [self.watchlistAC.content objectAtIndex:index];
     [self.delegate pressedInfoForMovie:movie];
 }
+
+- (void)setContentSet:(NSSet *)set{
+    self.watchlist = set;
+}
+
 
 @end
