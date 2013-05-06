@@ -8,7 +8,6 @@
 
 #import "WLSTAppDelegate.h"
 
-
 @implementation WLSTAppDelegate
 
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;

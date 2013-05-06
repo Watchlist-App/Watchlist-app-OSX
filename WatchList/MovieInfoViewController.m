@@ -7,6 +7,7 @@
 //
 
 #import "MovieInfoViewController.h"
+#import "TrailerViewController.h"
 
 @interface MovieInfoViewController ()
 @property (weak) IBOutlet NSImageView *posterImageView;
@@ -40,6 +41,15 @@
 
 - (IBAction)backButtonPressed:(id)sender {
     [self.delegate backToListPressed];
+}
+
+- (IBAction)trailerPressed:(id)sender {
+    TrailerViewController *trailerVC = [[TrailerViewController alloc] initWithNibName:@"TrailerViewController" bundle:[NSBundle mainBundle]];
+    trailerVC.view.frame = self.view.frame;
+    [[self.view superview] replaceSubview:self.view with:trailerVC.view];
+    [trailerVC setMovieTitle:[ self.titleLabel.stringValue stringByAppendingString:@" trailer"]];
+
+    
 }
 
 @end

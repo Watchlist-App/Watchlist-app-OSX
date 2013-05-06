@@ -19,6 +19,7 @@
 
 @implementation PostersViewController
 
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil inContext:(NSManagedObjectContext *)context
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

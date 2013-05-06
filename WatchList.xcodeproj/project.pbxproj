@@ -55,12 +55,17 @@
 		6346222D173661AC00D0F82C /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6346222C173661AC00D0F82C /* User.m */; };
 		63462230173661AC00D0F82C /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6346222F173661AC00D0F82C /* Movie.m */; };
 		63462233173671AD00D0F82C /* WhiteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63462232173671AD00D0F82C /* WhiteView.m */; };
+		63462266173690B400D0F82C /* PostersCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63462265173690B400D0F82C /* PostersCollectionView.m */; };
 		636FAA521733B4A100260DC3 /* WatchlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636FAA501733B4A100260DC3 /* WatchlistViewController.m */; };
 		636FAA531733B4A100260DC3 /* WatchlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636FAA511733B4A100260DC3 /* WatchlistViewController.xib */; };
 		636FAA571733B4C300260DC3 /* PostersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636FAA551733B4C300260DC3 /* PostersViewController.m */; };
 		636FAA581733B4C300260DC3 /* PostersViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636FAA561733B4C300260DC3 /* PostersViewController.xib */; };
 		636FAA5D1734414200260DC3 /* watchlist.icns in Resources */ = {isa = PBXBuildFile; fileRef = 636FAA5B1734414200260DC3 /* watchlist.icns */; };
 		636FAA5E1734414200260DC3 /* watchlist1.icns in Resources */ = {isa = PBXBuildFile; fileRef = 636FAA5C1734414200260DC3 /* watchlist1.icns */; };
+		637BB9A01736C39000674C66 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637BB99F1736C39000674C66 /* WebKit.framework */; };
+		637BB9A51736C45D00674C66 /* TrailerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 637BB9A31736C45D00674C66 /* TrailerViewController.m */; };
+		637BB9A61736C45D00674C66 /* TrailerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637BB9A41736C45D00674C66 /* TrailerViewController.xib */; };
+		637BB9A91736CE2000674C66 /* YouTubeFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 637BB9A81736CE2000674C66 /* YouTubeFetcher.m */; };
 		638236C01727E11D0081FE7A /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638236BE1727E11D0081FE7A /* PreferenceController.m */; };
 		638236C11727E11D0081FE7A /* PreferenceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638236BF1727E11D0081FE7A /* PreferenceController.xib */; };
 		638544AB1714263E006DE389 /* SidebarArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 638544AA1714263E006DE389 /* SidebarArrayController.m */; };
@@ -149,6 +154,8 @@
 		6346222F173661AC00D0F82C /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		63462231173671AD00D0F82C /* WhiteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WhiteView.h; sourceTree = "<group>"; };
 		63462232173671AD00D0F82C /* WhiteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiteView.m; sourceTree = "<group>"; };
+		63462264173690B400D0F82C /* PostersCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostersCollectionView.h; sourceTree = "<group>"; };
+		63462265173690B400D0F82C /* PostersCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostersCollectionView.m; sourceTree = "<group>"; };
 		636FAA4F1733B4A100260DC3 /* WatchlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistViewController.h; sourceTree = "<group>"; };
 		636FAA501733B4A100260DC3 /* WatchlistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchlistViewController.m; sourceTree = "<group>"; };
 		636FAA511733B4A100260DC3 /* WatchlistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchlistViewController.xib; sourceTree = "<group>"; };
@@ -162,6 +169,12 @@
 		636FAA6617345E2800260DC3 /* WatchlistDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistDelegate.h; sourceTree = "<group>"; };
 		636FAA6717345EF600260DC3 /* LoginWindowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginWindowDelegate.h; sourceTree = "<group>"; };
 		636FAA6817345F3D00260DC3 /* WatchlistWindowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistWindowDelegate.h; sourceTree = "<group>"; };
+		637BB99F1736C39000674C66 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		637BB9A21736C45D00674C66 /* TrailerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TrailerViewController.h; sourceTree = "<group>"; };
+		637BB9A31736C45D00674C66 /* TrailerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TrailerViewController.m; sourceTree = "<group>"; };
+		637BB9A41736C45D00674C66 /* TrailerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrailerViewController.xib; sourceTree = "<group>"; };
+		637BB9A71736CE2000674C66 /* YouTubeFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeFetcher.h; sourceTree = "<group>"; };
+		637BB9A81736CE2000674C66 /* YouTubeFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeFetcher.m; sourceTree = "<group>"; };
 		638236BD1727E11D0081FE7A /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferenceController.h; sourceTree = "<group>"; };
 		638236BE1727E11D0081FE7A /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferenceController.m; sourceTree = "<group>"; };
 		638236BF1727E11D0081FE7A /* PreferenceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceController.xib; sourceTree = "<group>"; };
@@ -208,6 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				637BB9A01736C39000674C66 /* WebKit.framework in Frameworks */,
 				63456D9B1713F36400787E9B /* Quartz.framework in Frameworks */,
 				63456D4D1713EE9300787E9B /* Cocoa.framework in Frameworks */,
 			);
@@ -268,6 +282,7 @@
 			children = (
 				63456D4C1713EE9300787E9B /* Cocoa.framework */,
 				63456D4E1713EE9300787E9B /* Other Frameworks */,
+				637BB99F1736C39000674C66 /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -288,8 +303,9 @@
 			children = (
 				636FAA6117345C4D00260DC3 /* Protocols */,
 				6396A24417247564009E9F40 /* DataFetchers */,
+				637BB9A11736C3CE00674C66 /* Views */,
 				63456D971713F0C000787E9B /* ViewControllers */,
-				63456D901713F05D00787E9B /* Views And Windows */,
+				63456D901713F05D00787E9B /* Xibs */,
 				63456D8F1713F05000787E9B /* ArrayControllers */,
 				63456D781713EFE300787E9B /* Images */,
 				63456D6F1713EF0400787E9B /* LoginWindow */,
@@ -391,28 +407,29 @@
 			name = ArrayControllers;
 			sourceTree = "<group>";
 		};
-		63456D901713F05D00787E9B /* Views And Windows */ = {
+		63456D901713F05D00787E9B /* Xibs */ = {
 			isa = PBXGroup;
 			children = (
 				639AF849173314590088B9B3 /* SearchViewController.xib */,
 				638236BF1727E11D0081FE7A /* PreferenceController.xib */,
 				63F47AAA17248E1F00F8B322 /* WatchlistWindow.xib */,
 				639AF83A1732E9D70088B9B3 /* MovieInfoView.xib */,
+				637BB9A41736C45D00674C66 /* TrailerViewController.xib */,
 				636FAA511733B4A100260DC3 /* WatchlistViewController.xib */,
 				636FAA561733B4C300260DC3 /* PostersViewController.xib */,
 			);
-			name = "Views And Windows";
+			name = Xibs;
 			sourceTree = "<group>";
 		};
 		63456D971713F0C000787E9B /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				637BB9A21736C45D00674C66 /* TrailerViewController.h */,
+				637BB9A31736C45D00674C66 /* TrailerViewController.m */,
 				63F47AA817248E1F00F8B322 /* WatchlistWindowController.h */,
 				63F47AA917248E1F00F8B322 /* WatchlistWindowController.m */,
 				638236BD1727E11D0081FE7A /* PreferenceController.h */,
 				638236BE1727E11D0081FE7A /* PreferenceController.m */,
-				63D31F3F173183A800BB71B0 /* sidebarTableView.h */,
-				63D31F40173183A800BB71B0 /* sidebarTableView.m */,
 				639AF8371732E9C00088B9B3 /* MovieInfoViewController.h */,
 				639AF8381732E9C00088B9B3 /* MovieInfoViewController.m */,
 				639AF847173314580088B9B3 /* SearchViewController.h */,
@@ -421,8 +438,6 @@
 				636FAA501733B4A100260DC3 /* WatchlistViewController.m */,
 				636FAA541733B4C300260DC3 /* PostersViewController.h */,
 				636FAA551733B4C300260DC3 /* PostersViewController.m */,
-				63462231173671AD00D0F82C /* WhiteView.h */,
-				63462232173671AD00D0F82C /* WhiteView.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -439,6 +454,19 @@
 			name = Protocols;
 			sourceTree = "<group>";
 		};
+		637BB9A11736C3CE00674C66 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				63D31F3F173183A800BB71B0 /* sidebarTableView.h */,
+				63D31F40173183A800BB71B0 /* sidebarTableView.m */,
+				63462264173690B400D0F82C /* PostersCollectionView.h */,
+				63462265173690B400D0F82C /* PostersCollectionView.m */,
+				63462231173671AD00D0F82C /* WhiteView.h */,
+				63462232173671AD00D0F82C /* WhiteView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		6396A24417247564009E9F40 /* DataFetchers */ = {
 			isa = PBXGroup;
 			children = (
@@ -448,6 +476,8 @@
 				63AE1DBE17327118004A3582 /* FandangoFetcher.m */,
 				63AE1DC017327131004A3582 /* AmazonFetcher.h */,
 				63AE1DC117327131004A3582 /* AmazonFetcher.m */,
+				637BB9A71736CE2000674C66 /* YouTubeFetcher.h */,
+				637BB9A81736CE2000674C66 /* YouTubeFetcher.m */,
 			);
 			name = DataFetchers;
 			sourceTree = "<group>";
@@ -566,6 +596,7 @@
 				636FAA581733B4C300260DC3 /* PostersViewController.xib in Resources */,
 				636FAA5D1734414200260DC3 /* watchlist.icns in Resources */,
 				636FAA5E1734414200260DC3 /* watchlist1.icns in Resources */,
+				637BB9A61736C45D00674C66 /* TrailerViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +632,9 @@
 				6346222D173661AC00D0F82C /* User.m in Sources */,
 				63462230173661AC00D0F82C /* Movie.m in Sources */,
 				63462233173671AD00D0F82C /* WhiteView.m in Sources */,
+				63462266173690B400D0F82C /* PostersCollectionView.m in Sources */,
+				637BB9A51736C45D00674C66 /* TrailerViewController.m in Sources */,
+				637BB9A91736CE2000674C66 /* YouTubeFetcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

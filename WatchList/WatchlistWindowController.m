@@ -66,9 +66,10 @@
     
     [self.window.contentView setWantsLayer:YES];
     [self.sidebarTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:0] byExtendingSelection:NO];
+    
     self.watchlistVC.view.frame = self.managedView.frame;
     [self.window.contentView replaceSubview:self.managedView with:self.watchlistVC.view];
-    self.managedView = self.watchlistVC.view;    
+    self.managedView = self.watchlistVC.view;
 }
 
 
