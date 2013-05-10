@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface MovieListViewController : NSViewController
+@interface SmallPostersViewController : NSViewController
 @property (strong) IBOutlet NSArrayController *listAC;
 - (void)setListArray:(NSArray *)list;
 

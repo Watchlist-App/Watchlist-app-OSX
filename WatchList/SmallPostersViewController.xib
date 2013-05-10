@@ -32,7 +32,7 @@
 		</object>
 		<array class="NSMutableArray" key="IBDocument.RootObjects" id="1000">
 			<object class="NSCustomObject" id="1001">
-				<string key="NSClassName">MovieListViewController</string>
+				<string key="NSClassName">SmallPostersViewController</string>
 			</object>
 			<object class="NSCustomObject" id="1003">
 				<string key="NSClassName">FirstResponder</string>
@@ -41,7 +41,7 @@
 				<string key="NSClassName">NSApplication</string>
 			</object>
 			<object class="NSScrollView" id="896521843">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">290</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSClipView" id="251975801">
@@ -53,8 +53,7 @@
 								<int key="NSvFlags">274</int>
 								<string key="NSFrameSize">{1083, 188}</string>
 								<reference key="NSSuperview" ref="251975801"/>
-								<reference key="NSWindow"/>
-								<reference key="NSNextKeyView"/>
+								<reference key="NSNextKeyView" ref="924911927"/>
 								<string key="NSReuseIdentifierKey">_NS:80</string>
 								<string key="NSMinGridSize">{0, 0}</string>
 								<string key="NSMaxGridSize">{0, 0}</string>
@@ -72,7 +71,6 @@
 						</array>
 						<string key="NSFrame">{{1, 1}, {1083, 188}}</string>
 						<reference key="NSSuperview" ref="896521843"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="651966030"/>
 						<string key="NSReuseIdentifierKey">_NS:78</string>
 						<reference key="NSDocView" ref="651966030"/>
@@ -87,7 +85,6 @@
 						<int key="NSvFlags">-2147483392</int>
 						<string key="NSFrame">{{-100, -100}, {15, 143}}</string>
 						<reference key="NSSuperview" ref="896521843"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="290581561"/>
 						<string key="NSReuseIdentifierKey">_NS:82</string>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -101,7 +98,6 @@
 						<int key="NSvFlags">-2147483392</int>
 						<string key="NSFrame">{{-100, -100}, {233, 15}}</string>
 						<reference key="NSSuperview" ref="896521843"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="251975801"/>
 						<string key="NSReuseIdentifierKey">_NS:91</string>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
@@ -112,9 +108,7 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{1085, 190}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
-				<reference key="NSNextKeyView" ref="924911927"/>
+				<reference key="NSNextKeyView" ref="251975801"/>
 				<string key="NSReuseIdentifierKey">_NS:76</string>
 				<int key="NSsFlags">133634</int>
 				<reference key="NSVScroller" ref="924911927"/>
@@ -126,7 +120,7 @@
 			</object>
 			<object class="NSCollectionViewItem" id="306988710"/>
 			<object class="NSView" id="597108428">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">256</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="NSImageView" id="365981046">
@@ -142,7 +136,6 @@
 						</set>
 						<string key="NSFrame">{{11, 20}, {99, 141}}</string>
 						<reference key="NSSuperview" ref="597108428"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="46539543"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="NSEnabled">YES</bool>
@@ -167,8 +160,6 @@
 						<int key="NSvFlags">266</int>
 						<string key="NSFrame">{{8, 0}, {105, 17}}</string>
 						<reference key="NSSuperview" ref="597108428"/>
-						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="814764100">
@@ -205,8 +196,6 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{119, 174}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="365981046"/>
 			</object>
 			<object class="NSArrayController" id="724909285">
@@ -441,25 +430,6 @@
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">MovieListViewController</string>
-					<string key="superclassName">NSViewController</string>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">listAC</string>
-						<string key="NS.object.0">NSArrayController</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">listAC</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">listAC</string>
-							<string key="candidateClassName">NSArrayController</string>
-						</object>
-					</object>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/MovieListViewController.h</string>
-					</object>
-				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">NSCollectionViewItem</string>
 					<dictionary class="NSMutableDictionary" key="outlets">

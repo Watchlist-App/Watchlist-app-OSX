@@ -55,7 +55,7 @@
         } else if (![matches count]) {
             list = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:context];
             list.title = title;
-            list.owner = user;
+            list.listOwner = user;
         } else {
             list = [matches lastObject];
         }

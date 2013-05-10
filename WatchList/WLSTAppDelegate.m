@@ -7,6 +7,9 @@
 //
 
 #import "WLSTAppDelegate.h"
+#import "Movie+TMDB.h"
+#import "TheMovieDbFetcher.h"
+
 
 @implementation WLSTAppDelegate
 

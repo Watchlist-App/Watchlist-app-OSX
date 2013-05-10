@@ -7,8 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Movie+IMDB.h"
 #import "WatchlistDelegate.h"
+#import "Movie+TMDB.h"
 
 
 @interface WatchlistViewController : NSViewController

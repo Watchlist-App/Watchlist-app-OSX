@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 dmitry.mazuro. All rights reserved.
 //
 
-#import "MovieListViewController.h"
+#import "SmallPostersViewController.h"
 #import "TheMovieDbFetcher.h"
 
-@interface MovieListViewController ()
+@interface SmallPostersViewController ()
 
 @end
 
-@implementation MovieListViewController
+@implementation SmallPostersViewController
 
 - (void)setListArray:(NSArray *)list{
     self.listAC.content = list;

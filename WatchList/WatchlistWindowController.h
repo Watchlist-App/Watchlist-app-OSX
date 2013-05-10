@@ -10,10 +10,9 @@
 #import <Quartz/Quartz.h>
 #import "User.h"
 #import "WatchlistViewController.h"
-#import "SearchViewController.h"
-#import "MovieInfoViewController.h"
+#import "MovieInfoDelegate.h"
+#import "internetListViewController.h"
 #import "PostersViewController.h"
-#import "IMDBFetcher.h"
 #import "WatchlistWindowDelegate.h"
 #import "WatchlistDelegate.h"
 

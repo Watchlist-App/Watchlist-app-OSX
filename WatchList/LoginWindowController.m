@@ -68,11 +68,7 @@
     if (self.signUpFormIsValid) {
         //Create new profile!
         User *newUser;
-        newUser = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:self.managedObjectContext];
-        newUser.login = self.nameTextField.stringValue;
-        newUser.password = self.createPasswordTextField.stringValue;
-        newUser.profilePicture = self.profilePictureButton.image;
-        newUser.lists = nil;
+        newUser = [User userWithLogin:self.nameTextField.stringValue password:self.createPasswordTextField.stringValue profilePicture:self.profilePictureButton.image inManagedObjectContext:self.managedObjectContext];
         [self reloadAccounts];
         [self.delegate loggedInUser:newUser];
 

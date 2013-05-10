@@ -11,6 +11,7 @@
 #import <Quartz/Quartz.h>
 #import "User.h"
 #import "LoginWindowDelegate.h"
+#import "User+Create.h"
 
 
 

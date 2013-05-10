@@ -9,5 +9,5 @@
 #import "User.h"
 
 @interface User (Create)
-+ (User *)userWithLogin: (NSString *)login inManagedObjectContext:(NSManagedObjectContext*) context;
++ (User *)userWithLogin:(NSString *)login password:(NSString *)password profilePicture:(NSImage *)picture inManagedObjectContext:(NSManagedObjectContext *)context;
 @end

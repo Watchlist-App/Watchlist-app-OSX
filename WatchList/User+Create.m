@@ -9,11 +9,9 @@
 #import "User+Create.h"
 
 @implementation User (Create)
-+ (User *)userWithLogin:(NSString *)login inManagedObjectContext:(NSManagedObjectContext *)context{
++ (User *)userWithLogin:(NSString *)login password:(NSString *)password profilePicture:(NSImage *)picture inManagedObjectContext:(NSManagedObjectContext *)context{
     User *user = nil;
-    
-    // This is just like Photo(Flickr)'s method.  Look there for commentary.
-    
+        
     if (login.length) {
         NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"User"];
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"login"
@@ -29,6 +27,11 @@
         } else if (![matches count]) {
             user = [NSEntityDescription insertNewObjectForEntityForName:@"User" inManagedObjectContext:context];
             user.login = login;
+            user.password = password;
+            user.profilePicture = picture;
+            //user.favourites =
+            //user.watchlist =
+            //user.watchedMovies =
         } else {
             user = [matches lastObject];
         }

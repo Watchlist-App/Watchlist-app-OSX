@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 dmitry.mazuro. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
 @protocol WatchlistWindowDelegate <NSObject>
 - (void)userLoggedOut;

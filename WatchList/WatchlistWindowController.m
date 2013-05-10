@@ -7,6 +7,9 @@
 //
 
 #import "WatchlistWindowController.h"
+#import "List+Create.h"
+#import "MovieInfoViewController.h"
+#import "TheMovieDbFetcher.h"
 
 @interface WatchlistWindowController ()
 
@@ -33,7 +36,7 @@
 
 //view controllers
 @property (strong, nonatomic) MovieInfoViewController *movieInfoVC;
-@property (strong, nonatomic) SearchViewController *searchVC;
+@property (strong, nonatomic) internetListViewController *internetListVC;
 @property (strong, nonatomic) WatchlistViewController *watchlistVC;
 @property (strong, nonatomic) PostersViewController *posterVC;
 
@@ -51,7 +54,7 @@
 
 @implementation WatchlistWindowController
 
-- (void)loadWithUserProfile: (User *)userProfile{
+- (void)loadWithUserProfile:(User *)userProfile{
     self.user = userProfile;
     [self.window setBackgroundColor:[NSColor colorWithPatternImage:[NSImage imageNamed:@"woodBackground"]]];
     [self showWindow:self];
@@ -97,7 +100,7 @@
     view.frame = self.managedView.frame;
     [self.window.contentView replaceSubview:self.managedView with:view];
     self.managedView = view;
-    [self.searchVC searchForMovie:self.searchTextField.stringValue];
+    [self.searchVC setListDictionary:[TheMovieDbFetcher searchMoviesByTitle:self.searchTextField.stringValue]];
 }
 
 
@@ -121,11 +124,8 @@
 
 
 - (IBAction)adListConfirmed:(id)sender {
-    
-    List *newList = [[List alloc] initWithEntity:[NSEntityDescription entityForName:@"List" inManagedObjectContext:self.managedObjectContext] insertIntoManagedObjectContext:self.managedObjectContext];
-    newList.title = self.listTitleTextField.stringValue;
+    List *newList = [List listWithTitle:self.listTitleTextField.stringValue forUser:self.user inManagedObjectContext:self.managedObjectContext];
     newList.icon = self.listIconView.image;
-    newList.owner = self.user;
 }
 
 
@@ -148,20 +148,36 @@
 
 
 //delegate methods
-- (void)selectedMovieWithID:(NSString *)imdbID{
+- (void)selectedMovieWithID:(NSString *)tmdbID{
     dispatch_queue_t fetchQueue = dispatch_queue_create("Movie info fetch", NULL);
     dispatch_async(fetchQueue, ^{
-        NSDictionary *imdbDictionary = [IMDBFetcher searchMoiveByID:imdbID];
-        [Movie movieWithIMDBDictionary:imdbDictionary forList:self.selectedList inManagedObjectContext:self.managedObjectContext];
+        NSDictionary *tmdbDictionary = [TheMovieDbFetcher infoForMovieID:tmdbID.intValue];
+        NSLog(@"%d",tmdbID.intValue);
+        Movie *movie = [Movie movieWithTMDBDictionary:tmdbDictionary inManagedObjectContext:self.managedObjectContext];
+        [self.selectedList addMoviesObject:movie];
     });
     
 }
 
-- (void)pressedInfoForMovie:(Movie *)movie{
+- (void)clickedInfoForMovie:(Movie *)movie{
+    
     [self.movieInfoVC setMovie:movie];
-    self.movieInfoVC.view.frame = self.managedView.frame;
-    [[[self.window contentView] animator] replaceSubview:self.managedView with:self.movieInfoVC.view];
-    self.managedView = self.movieInfoVC.view;
+    NSScrollView *scrollView = [[NSScrollView alloc] initWithFrame:self.managedView.frame];
+    
+    // configure the scroll view
+    [scrollView setBorderType:NSNoBorder];
+    [scrollView setHasVerticalScroller:YES];
+    
+    // embed your custom view in the scroll view
+    [scrollView setDocumentView:self.movieInfoVC.view];
+    
+    // set the scroll view as the content view of your window
+    [self.window.contentView replaceSubview:self.managedView with:scrollView];
+
+    
+    //self.movieInfoVC.view.frame = self.managedView.frame;
+    //[[[self.window contentView] animator] replaceSubview:self.managedView with:self.movieInfoVC.view];
+    self.managedView = scrollView;
 }
 
 - (void)backToListPressed{
@@ -172,20 +188,14 @@
 
 
 //Lazy instantiation getters
-- (MovieInfoViewController *)movieInfoVC{
-    if (!_movieInfoVC) {
-        _movieInfoVC  = [[MovieInfoViewController alloc] initWithNibName:@"MovieInfoView" bundle:[NSBundle mainBundle]];
-        _movieInfoVC.delegate = self;
-    }
-    return _movieInfoVC;
-}
 
-- (SearchViewController *)searchVC{
-    if (!_searchVC) {
-        _searchVC = [[SearchViewController alloc] initWithNibName:@"SearchViewController" bundle:[NSBundle mainBundle]];
-        _searchVC.delegate = self;
+
+- (internetListViewController *)searchVC{
+    if (!_internetListVC) {
+        _internetListVC = [[internetListViewController alloc] initWithNibName:@"internetListViewController" bundle:[NSBundle mainBundle]];
+        _internetListVC.delegate = self;
     }
-    return _searchVC;
+    return _internetListVC;
 }
 
 - (WatchlistViewController *)watchlistVC{
@@ -194,6 +204,14 @@
         _watchlistVC.delegate = self;
     }
     return _watchlistVC;
+}
+
+- (MovieInfoViewController *)movieInfoVC{
+    if (!_movieInfoVC) {
+        _movieInfoVC = [[MovieInfoViewController alloc] initWithNibName:@"MovieInfoViewController" bundle:[NSBundle mainBundle]];
+        _movieInfoVC.delegate = self;
+    }
+    return _movieInfoVC;
 }
 
 - (PostersViewController *)posterVC{

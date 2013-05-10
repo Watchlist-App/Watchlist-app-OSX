@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "Movie+IMDB.h"
+#import "Movie+TMDB.h"
 #import "WatchlistDelegate.h"
 
 

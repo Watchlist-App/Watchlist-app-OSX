@@ -9,11 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import "SearchDelegate.h"
 
-@interface SearchViewController : NSViewController
+@interface internetListViewController : NSViewController
 
 @property (nonatomic,assign) id<SearchDelegate> delegate;
 
-- (void)searchForMovie:(NSString *)movieTitle;
-- (NSArray *)searchResultsForMovie:(NSString *)movieTitle;
+- (void)setListDictionary:(NSDictionary *)list;
 
 @end

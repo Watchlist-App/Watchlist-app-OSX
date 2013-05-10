@@ -6,8 +6,7 @@
 //  Copyright (c) 2013 dmitry.mazuro. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
 @protocol SearchDelegate <NSObject>
-- (void)selectedMovieWithID:(NSString *)imdbID;
+- (void)selectedMovieWithID:(NSString *)tmdbID;
 @end

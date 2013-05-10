@@ -38,7 +38,7 @@
 - (IBAction)infoButtonPressed:(id)sender {
     NSUInteger index = [self.watchlistTableView rowForView:sender];
     Movie *movie = [self.watchlistAC.content objectAtIndex:index];
-    [self.delegate pressedInfoForMovie:movie];
+    [self.delegate clickedInfoForMovie:movie];
 }
 
 - (void)setContentSet:(NSSet *)set{

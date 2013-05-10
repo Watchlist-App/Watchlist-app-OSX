@@ -11,6 +11,7 @@
 #import "WatchlistWindowController.h"
 #import "WatchlistWindowDelegate.h"
 
+
 @interface WLSTAppDelegate : NSObject <NSApplicationDelegate, LoginWindowDelegate, WatchlistWindowDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
