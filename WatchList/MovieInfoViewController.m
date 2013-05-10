@@ -8,6 +8,8 @@
 
 #import "MovieInfoViewController.h"
 #import "TrailerViewController.h"
+#import "TheMovieDbFetcher.h"
+#import "MovieListViewController.h"
 
 @interface MovieInfoViewController ()
 @property (weak) IBOutlet NSImageView *posterImageView;
@@ -36,6 +38,12 @@
     self.directorLabel.stringValue = @"nope";//[movie.directors description];
     self.producersLabel.stringValue = @"NOPE";
     self.plotLabel.stringValue = [movie.plot description];
+    
+    
+    MovieListViewController *movieListVC = [[MovieListViewController alloc] initWithNibName:@"MovieListViewController" bundle:[NSBundle mainBundle]];
+    [self.view addSubview:movieListVC.view];
+    NSArray *list = [[TheMovieDbFetcher recommendationsForMovieID:550] valueForKey:@"results"];
+    [movieListVC setListArray:list];
     
 }
 

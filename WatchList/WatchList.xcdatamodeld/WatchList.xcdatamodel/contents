@@ -29,8 +29,8 @@
         <relationship name="lists" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="List" inverseName="owner" inverseEntity="List" syncable="YES"/>
     </entity>
     <elements>
-        <element name="List" positionX="160" positionY="192" width="128" height="103"/>
-        <element name="Movie" positionX="178" positionY="-117" width="128" height="253"/>
-        <element name="User" positionX="-83" positionY="236" width="128" height="103"/>
+        <element name="List" positionX="144" positionY="117" width="128" height="103"/>
+        <element name="Movie" positionX="385" positionY="8" width="128" height="253"/>
+        <element name="User" positionX="-99" positionY="144" width="128" height="103"/>
     </elements>
 </model>
