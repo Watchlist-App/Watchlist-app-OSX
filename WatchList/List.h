@@ -2,7 +2,7 @@
 //  List.h
 //  WatchList
 //
-//  Created by Dmitry Mazuro on 10/05/2013.
+//  Created by Dmitry Mazuro on 11/05/2013.
 //  Copyright (c) 2013 dmitry.mazuro. All rights reserved.
 //
 
@@ -15,11 +15,8 @@
 
 @property (nonatomic, retain) id icon;
 @property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSSet *movies;
 @property (nonatomic, retain) User *listOwner;
-@property (nonatomic, retain) User *favsOwner;
-@property (nonatomic, retain) User *watchlistOwner;
-@property (nonatomic, retain) User *watchedOwner;
+@property (nonatomic, retain) NSSet *movies;
 @end
 
 @interface List (CoreDataGeneratedAccessors)

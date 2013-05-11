@@ -15,7 +15,7 @@
     NSLog(@"inserting movie");
     
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Movie"];
-    request.predicate = [NSPredicate predicateWithFormat:@"tmdbID = %@", [tmdbDictiory valueForKey:@"id"]];
+    request.predicate = [NSPredicate predicateWithFormat:@"tmdbID == %@", [tmdbDictiory valueForKey:@"id"]];
     NSError *error = nil;
     NSArray *matches = [context executeFetchRequest:request error:&error];
     
@@ -44,33 +44,33 @@
         [countries enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop){
             countriesString = [countriesString stringByAppendingFormat:@"%@, ",[object valueForKey:@"name"]];
         }];
-        /*
-        if ([countriesString length] > 0) {
-            countriesString = [countriesString substringToIndex:[countriesString length] - 1];
+    
+        if ([countriesString hasSuffix:@","]) {
+            countriesString = [countriesString substringToIndex:([countriesString length] - 1)];
         }
-         */
+        
         movie.countries = countriesString;
         
         __block NSString *studiosString = [[NSString alloc] init];
         [studios enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop){
             studiosString = [studiosString stringByAppendingFormat:@"%@, ",[object valueForKey:@"name"]];
         }];
-        /*
-        if ([studiosString length] > 0) {
-            studiosString = [studiosString substringToIndex:[countriesString length] - 1];
+        
+        if ([studiosString hasSuffix:@","]) {
+            studiosString = [studiosString substringToIndex:([countriesString length] - 1)];
         }
-         */
+         
         movie.productionCompanies = studiosString;
         
         __block NSString *genresString = [[NSString alloc] init];
         [genres enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop){
             genresString = [genresString stringByAppendingFormat:@"%@, ",[object valueForKey:@"name"]];
         }];
-        /*
-        if ([genresString length] > 0) {
-            genresString = [genresString substringToIndex:[genresString length] - 1];
+        
+        if ([genresString hasSuffix:@","]) {
+            genresString = [genresString substringToIndex:([genresString length] - 1)];
         }
-         */
+        
         movie.genres = genresString;
         
         NSArray *youTubeTrailers = [[TheMovieDbFetcher trailersForMovieID:movie.tmdbID.intValue] valueForKey:@"youtube"];
@@ -78,11 +78,12 @@
             movie.youTubeTrailerID = [youTubeTrailers[0] valueForKey:@"source"];
         }
         
-        NSImage *poster = [TheMovieDbFetcher posterForMovieID:movie.tmdbID.intValue size:@"original"];
+        NSImage *poster = [TheMovieDbFetcher posterForMovieID:movie.tmdbID.intValue size:@"w500"];
+    
         movie.posterPicture = poster;
         
         
-    } else { // found the Photo, just return it from the list of matches (which there will only be one of)
+    } else {
         movie = [matches lastObject];
     }
     

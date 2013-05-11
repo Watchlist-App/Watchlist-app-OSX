@@ -2,7 +2,7 @@
 //  Movie.m
 //  WatchList
 //
-//  Created by Dmitry Mazuro on 10/05/2013.
+//  Created by Dmitry Mazuro on 11/05/2013.
 //  Copyright (c) 2013 dmitry.mazuro. All rights reserved.
 //
 
@@ -12,21 +12,21 @@
 
 @implementation Movie
 
+@dynamic budget;
 @dynamic countries;
 @dynamic genres;
 @dynamic plot;
 @dynamic posterPicture;
 @dynamic posterURL;
+@dynamic productionCompanies;
 @dynamic rating;
+@dynamic releaseDate;
+@dynamic revenue;
 @dynamic runtime;
 @dynamic title;
-@dynamic releaseDate;
-@dynamic budget;
-@dynamic revenue;
+@dynamic tmdbID;
 @dynamic website;
 @dynamic youTubeTrailerID;
-@dynamic tmdbID;
-@dynamic productionCompanies;
 @dynamic listContainers;
 
 @end

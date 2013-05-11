@@ -7,6 +7,8 @@
 //
 
 #import "User+Create.h"
+#import "List+Create.h"
+
 
 @implementation User (Create)
 + (User *)userWithLogin:(NSString *)login password:(NSString *)password profilePicture:(NSImage *)picture inManagedObjectContext:(NSManagedObjectContext *)context{
@@ -17,7 +19,7 @@
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"login"
                                                                   ascending:YES
                                                                    selector:@selector(localizedCaseInsensitiveCompare:)]];
-        request.predicate = [NSPredicate predicateWithFormat:@"login = %@", login];
+        request.predicate = [NSPredicate predicateWithFormat:@"login == %@", login];
         
         NSError *error;
         NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -29,9 +31,11 @@
             user.login = login;
             user.password = password;
             user.profilePicture = picture;
-            //user.favourites =
-            //user.watchlist =
-            //user.watchedMovies =
+            
+            List *favorites = [List ListWithTitle:@"Favorites" icon:[NSImage imageNamed:@"star.png"] forUser:user inManagedObjectContext:context];
+            List *watchlist = [List ListWithTitle:@"Watchlist" icon:[NSImage imageNamed:@"list.png"] forUser:user inManagedObjectContext:context];
+            List *watchedMovies = [List ListWithTitle:@"Watched movies" icon:[NSImage imageNamed:@"check.png"] forUser:user inManagedObjectContext:context];
+            
         } else {
             user = [matches lastObject];
         }

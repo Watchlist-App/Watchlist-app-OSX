@@ -7,8 +7,6 @@
 //
 
 #import "WLSTAppDelegate.h"
-#import "Movie+TMDB.h"
-#import "TheMovieDbFetcher.h"
 
 
 @implementation WLSTAppDelegate
@@ -22,6 +20,7 @@
 {
     [self.window close];
     [self.loginWindowController showWindow:self];
+  
 }
 
 - (IBAction)preferencesMenuClicked:(id)sender {
@@ -61,15 +60,6 @@
     self.watchlistWindowController = nil;
     [self.loginWindowController showWindow:self];
 }
-
-
-
-
-
-
-
-
-
 
 
 

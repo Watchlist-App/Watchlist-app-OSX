@@ -10,6 +10,35 @@
 
 @implementation List (Create)
 
++ (List *)ListWithTitle:(NSString *)title icon:(NSImage *)icon forUser:(User *)user inManagedObjectContext:(NSManagedObjectContext *)context{
+    List *list = nil;
+    
+    
+    if (title.length) {
+        NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"List"];
+        request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
+                                                                  ascending:YES
+                                                                   selector:@selector(localizedCaseInsensitiveCompare:)]];
+        request.predicate = [NSPredicate predicateWithFormat:@"(title == %@) AND (listOwner.login == %@)", title, user.login];
+        
+        NSError *error;
+        NSArray *matches = [context executeFetchRequest:request error:&error];
+        
+        if (!matches || ([matches count] > 1)) {
+            // handle error
+        } else if (![matches count]) {
+            list = [NSEntityDescription insertNewObjectForEntityForName:@"List" inManagedObjectContext:context];
+            list.title = title;
+            list.icon = icon;
+            list.listOwner = user;
+        } else {
+            list = [matches lastObject];
+        }
+    }
+    
+    return list;
+}
+
 + (List *)listWithTitle:(NSString *)title inManagedObjectContext:(NSManagedObjectContext *)context{
     List *list = nil;
     
@@ -19,7 +48,7 @@
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
                                                                   ascending:YES
                                                                    selector:@selector(localizedCaseInsensitiveCompare:)]];
-        request.predicate = [NSPredicate predicateWithFormat:@"title = %@", title];
+        request.predicate = [NSPredicate predicateWithFormat:@"title == %@", title];
         
         NSError *error;
         NSArray *matches = [context executeFetchRequest:request error:&error];
@@ -45,7 +74,7 @@
         request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title"
                                                                   ascending:YES
                                                                    selector:@selector(localizedCaseInsensitiveCompare:)]];
-        request.predicate = [NSPredicate predicateWithFormat:@"title = %@", title];
+        request.predicate = [NSPredicate predicateWithFormat:@"(title == %@) AND (listOwner.login == %@)", title, user.login];
         
         NSError *error;
         NSArray *matches = [context executeFetchRequest:request error:&error];

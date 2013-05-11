@@ -30,12 +30,9 @@
 		6327559C17230D3F0051BAA3 /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6327558517230D3F0051BAA3 /* 7.jpg */; };
 		6327559D17230D3F0051BAA3 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6327558617230D3F0051BAA3 /* 8.jpg */; };
 		6327559E17230D3F0051BAA3 /* 9.png in Resources */ = {isa = PBXBuildFile; fileRef = 6327558717230D3F0051BAA3 /* 9.png */; };
-		63430547173D5C75004F7155 /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 63430546173D5C75004F7155 /* List.m */; };
-		6343054D173D5C75004F7155 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6343054C173D5C75004F7155 /* User.m */; };
 		63430553173D5D17004F7155 /* YouTubeFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 6343054F173D5D17004F7155 /* YouTubeFetcher.m */; };
 		63430554173D5D17004F7155 /* TheMovieDbFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 63430552173D5D17004F7155 /* TheMovieDbFetcher.m */; };
 		63430557173D6158004F7155 /* Movie+TMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 63430556173D6158004F7155 /* Movie+TMDB.m */; };
-		6343055D173D7269004F7155 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6343055C173D7269004F7155 /* Movie.m */; };
 		63430560173D7B00004F7155 /* CastViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6343055F173D7AFF004F7155 /* CastViewController.m */; };
 		63430563173D7B0F004F7155 /* MovieInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63430562173D7B0E004F7155 /* MovieInfoViewController.m */; };
 		63430566173D7B1F004F7155 /* CastViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63430564173D7B1F004F7155 /* CastViewController.xib */; };
@@ -63,6 +60,12 @@
 		63456DA81713F98000787E9B /* LoginWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 63456DA71713F97F00787E9B /* LoginWindow.xib */; };
 		63462233173671AD00D0F82C /* WhiteView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63462232173671AD00D0F82C /* WhiteView.m */; };
 		63462266173690B400D0F82C /* PostersCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63462265173690B400D0F82C /* PostersCollectionView.m */; };
+		635DA823173E4B080071AF66 /* check.png in Resources */ = {isa = PBXBuildFile; fileRef = 635DA81D173E4B080071AF66 /* check.png */; };
+		635DA824173E4B080071AF66 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 635DA81E173E4B080071AF66 /* star.png */; };
+		635DA825173E4B080071AF66 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 635DA81F173E4B080071AF66 /* heart.png */; };
+		635DA826173E4B080071AF66 /* list.png in Resources */ = {isa = PBXBuildFile; fileRef = 635DA820173E4B080071AF66 /* list.png */; };
+		635DA827173E4B080071AF66 /* list1.png in Resources */ = {isa = PBXBuildFile; fileRef = 635DA821173E4B080071AF66 /* list1.png */; };
+		635DA82A173E4E750071AF66 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = 635DA829173E4E750071AF66 /* add.png */; };
 		636FAA521733B4A100260DC3 /* WatchlistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636FAA501733B4A100260DC3 /* WatchlistViewController.m */; };
 		636FAA531733B4A100260DC3 /* WatchlistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 636FAA511733B4A100260DC3 /* WatchlistViewController.xib */; };
 		636FAA571733B4C300260DC3 /* PostersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 636FAA551733B4C300260DC3 /* PostersViewController.m */; };
@@ -71,6 +74,13 @@
 		636FAA5E1734414200260DC3 /* watchlist1.icns in Resources */ = {isa = PBXBuildFile; fileRef = 636FAA5C1734414200260DC3 /* watchlist1.icns */; };
 		637BB9A01736C39000674C66 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 637BB99F1736C39000674C66 /* WebKit.framework */; };
 		637BB9A61736C45D00674C66 /* TrailerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 637BB9A41736C45D00674C66 /* TrailerViewController.xib */; };
+		6380CD2D173EB75F00192EFB /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = 6380CD2C173EB75F00192EFB /* List.m */; };
+		6380CD30173EB75F00192EFB /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = 6380CD2F173EB75F00192EFB /* Movie.m */; };
+		6380CD33173EB76000192EFB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 6380CD32173EB76000192EFB /* User.m */; };
+		6380CD39173ED1A600192EFB /* WLSTNotificationCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 6380CD38173ED1A600192EFB /* WLSTNotificationCenter.m */; };
+		6380CD3F173ED77D00192EFB /* List+TMDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 6380CD3E173ED77D00192EFB /* List+TMDB.m */; };
+		6380CD41173EDF7100192EFB /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6380CD40173EDF7100192EFB /* EventKit.framework */; };
+		6380CD44173EE04A00192EFB /* WLSTEventCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 6380CD43173EE04A00192EFB /* WLSTEventCreator.m */; };
 		638236C11727E11D0081FE7A /* PreferenceController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 638236BF1727E11D0081FE7A /* PreferenceController.xib */; };
 		639AF84A173314590088B9B3 /* internetListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639AF848173314590088B9B3 /* internetListViewController.m */; };
 		639AF84B173314590088B9B3 /* internetListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 639AF849173314590088B9B3 /* internetListViewController.xib */; };
@@ -113,10 +123,6 @@
 		6327558517230D3F0051BAA3 /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		6327558617230D3F0051BAA3 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		6327558717230D3F0051BAA3 /* 9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 9.png; sourceTree = "<group>"; };
-		63430545173D5C75004F7155 /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
-		63430546173D5C75004F7155 /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
-		6343054B173D5C75004F7155 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		6343054C173D5C75004F7155 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		6343054E173D5D17004F7155 /* YouTubeFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YouTubeFetcher.h; sourceTree = "<group>"; };
 		6343054F173D5D17004F7155 /* YouTubeFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YouTubeFetcher.m; sourceTree = "<group>"; };
 		63430550173D5D17004F7155 /* TheMovieDbApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TheMovieDbApiKey.h; sourceTree = "<group>"; };
@@ -124,8 +130,6 @@
 		63430552173D5D17004F7155 /* TheMovieDbFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TheMovieDbFetcher.m; sourceTree = "<group>"; };
 		63430555173D6157004F7155 /* Movie+TMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Movie+TMDB.h"; sourceTree = "<group>"; };
 		63430556173D6158004F7155 /* Movie+TMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Movie+TMDB.m"; sourceTree = "<group>"; };
-		6343055B173D7269004F7155 /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
-		6343055C173D7269004F7155 /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		6343055E173D7AFF004F7155 /* CastViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CastViewController.h; sourceTree = "<group>"; };
 		6343055F173D7AFF004F7155 /* CastViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CastViewController.m; sourceTree = "<group>"; };
 		63430561173D7B0E004F7155 /* MovieInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieInfoViewController.h; sourceTree = "<group>"; };
@@ -166,6 +170,12 @@
 		63462232173671AD00D0F82C /* WhiteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WhiteView.m; sourceTree = "<group>"; };
 		63462264173690B400D0F82C /* PostersCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostersCollectionView.h; sourceTree = "<group>"; };
 		63462265173690B400D0F82C /* PostersCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostersCollectionView.m; sourceTree = "<group>"; };
+		635DA81D173E4B080071AF66 /* check.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = check.png; sourceTree = "<group>"; };
+		635DA81E173E4B080071AF66 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		635DA81F173E4B080071AF66 /* heart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = heart.png; sourceTree = "<group>"; };
+		635DA820173E4B080071AF66 /* list.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list.png; sourceTree = "<group>"; };
+		635DA821173E4B080071AF66 /* list1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list1.png; sourceTree = "<group>"; };
+		635DA829173E4E750071AF66 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
 		636FAA4F1733B4A100260DC3 /* WatchlistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistViewController.h; sourceTree = "<group>"; };
 		636FAA501733B4A100260DC3 /* WatchlistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WatchlistViewController.m; sourceTree = "<group>"; };
 		636FAA511733B4A100260DC3 /* WatchlistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WatchlistViewController.xib; sourceTree = "<group>"; };
@@ -181,6 +191,19 @@
 		636FAA6817345F3D00260DC3 /* WatchlistWindowDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WatchlistWindowDelegate.h; sourceTree = "<group>"; };
 		637BB99F1736C39000674C66 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		637BB9A41736C45D00674C66 /* TrailerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TrailerViewController.xib; sourceTree = "<group>"; };
+		6380CD2B173EB75F00192EFB /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		6380CD2C173EB75F00192EFB /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
+		6380CD2E173EB75F00192EFB /* Movie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
+		6380CD2F173EB75F00192EFB /* Movie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		6380CD31173EB76000192EFB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		6380CD32173EB76000192EFB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		6380CD37173ED1A600192EFB /* WLSTNotificationCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSTNotificationCenter.h; sourceTree = "<group>"; };
+		6380CD38173ED1A600192EFB /* WLSTNotificationCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSTNotificationCenter.m; sourceTree = "<group>"; };
+		6380CD3D173ED77D00192EFB /* List+TMDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "List+TMDB.h"; sourceTree = "<group>"; };
+		6380CD3E173ED77D00192EFB /* List+TMDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "List+TMDB.m"; sourceTree = "<group>"; };
+		6380CD40173EDF7100192EFB /* EventKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = EventKit.framework; path = System/Library/Frameworks/EventKit.framework; sourceTree = SDKROOT; };
+		6380CD42173EE04A00192EFB /* WLSTEventCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSTEventCreator.h; sourceTree = "<group>"; };
+		6380CD43173EE04A00192EFB /* WLSTEventCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLSTEventCreator.m; sourceTree = "<group>"; };
 		638236BF1727E11D0081FE7A /* PreferenceController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PreferenceController.xib; sourceTree = "<group>"; };
 		639AF847173314580088B9B3 /* internetListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internetListViewController.h; sourceTree = "<group>"; };
 		639AF848173314590088B9B3 /* internetListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = internetListViewController.m; sourceTree = "<group>"; };
@@ -211,6 +234,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6380CD41173EDF7100192EFB /* EventKit.framework in Frameworks */,
 				637BB9A01736C39000674C66 /* WebKit.framework in Frameworks */,
 				63456D9B1713F36400787E9B /* Quartz.framework in Frameworks */,
 				63456D4D1713EE9300787E9B /* Cocoa.framework in Frameworks */,
@@ -272,7 +296,6 @@
 			children = (
 				63456D4C1713EE9300787E9B /* Cocoa.framework */,
 				63456D4E1713EE9300787E9B /* Other Frameworks */,
-				637BB99F1736C39000674C66 /* WebKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -280,6 +303,8 @@
 		63456D4E1713EE9300787E9B /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				637BB99F1736C39000674C66 /* WebKit.framework */,
+				6380CD40173EDF7100192EFB /* EventKit.framework */,
 				63456D9A1713F36400787E9B /* Quartz.framework */,
 				63456D4F1713EE9300787E9B /* AppKit.framework */,
 				63456D501713EE9300787E9B /* CoreData.framework */,
@@ -291,12 +316,12 @@
 		63456D521713EE9300787E9B /* WatchList */ = {
 			isa = PBXGroup;
 			children = (
+				6380CD36173ED17100192EFB /* OS services */,
 				636FAA6117345C4D00260DC3 /* Protocols */,
 				6396A24417247564009E9F40 /* DataFetchers */,
 				637BB9A11736C3CE00674C66 /* Views */,
 				63456D971713F0C000787E9B /* ViewControllers */,
 				63456D901713F05D00787E9B /* Xibs */,
-				63456D8F1713F05000787E9B /* ArrayControllers */,
 				63456D781713EFE300787E9B /* Images */,
 				63456D6F1713EF0400787E9B /* LoginWindow */,
 				63456D6E1713EEF600787E9B /* AppDelegate */,
@@ -322,14 +347,16 @@
 			isa = PBXGroup;
 			children = (
 				63456D641713EE9300787E9B /* WatchList.xcdatamodeld */,
-				6343055B173D7269004F7155 /* Movie.h */,
-				6343055C173D7269004F7155 /* Movie.m */,
-				6343054B173D5C75004F7155 /* User.h */,
-				6343054C173D5C75004F7155 /* User.m */,
+				6380CD31173EB76000192EFB /* User.h */,
+				6380CD32173EB76000192EFB /* User.m */,
+				6380CD2E173EB75F00192EFB /* Movie.h */,
+				6380CD2F173EB75F00192EFB /* Movie.m */,
+				6380CD3D173ED77D00192EFB /* List+TMDB.h */,
+				6380CD3E173ED77D00192EFB /* List+TMDB.m */,
+				6380CD2B173EB75F00192EFB /* List.h */,
+				6380CD2C173EB75F00192EFB /* List.m */,
 				63430555173D6157004F7155 /* Movie+TMDB.h */,
 				63430556173D6158004F7155 /* Movie+TMDB.m */,
-				63430545173D5C75004F7155 /* List.h */,
-				63430546173D5C75004F7155 /* List.m */,
 				63D31F361731785F00BB71B0 /* User+Create.h */,
 				63D31F371731785F00BB71B0 /* User+Create.m */,
 				63D31F301731780700BB71B0 /* List+Create.h */,
@@ -370,6 +397,7 @@
 				63456D791713EFF100787E9B /* woodBackground.png */,
 				63456D7A1713EFF100787E9B /* bg1.png */,
 				63456D7B1713EFF100787E9B /* bg2.png */,
+				635DA81C173E4B080071AF66 /* icons */,
 				63456D7C1713EFF100787E9B /* bg3.png */,
 				63D31F201731520C00BB71B0 /* patterns */,
 				63456D7D1713EFF100787E9B /* bg4.png */,
@@ -384,13 +412,6 @@
 				63456D831713EFF100787E9B /* subtle.png */,
 			);
 			name = Images;
-			sourceTree = "<group>";
-		};
-		63456D8F1713F05000787E9B /* ArrayControllers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ArrayControllers;
 			sourceTree = "<group>";
 		};
 		63456D901713F05D00787E9B /* Xibs */ = {
@@ -430,6 +451,19 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		635DA81C173E4B080071AF66 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				635DA829173E4E750071AF66 /* add.png */,
+				635DA81D173E4B080071AF66 /* check.png */,
+				635DA81E173E4B080071AF66 /* star.png */,
+				635DA81F173E4B080071AF66 /* heart.png */,
+				635DA820173E4B080071AF66 /* list.png */,
+				635DA821173E4B080071AF66 /* list1.png */,
+			);
+			path = icons;
+			sourceTree = "<group>";
+		};
 		636FAA6117345C4D00260DC3 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -451,6 +485,17 @@
 				63462232173671AD00D0F82C /* WhiteView.m */,
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		6380CD36173ED17100192EFB /* OS services */ = {
+			isa = PBXGroup;
+			children = (
+				6380CD37173ED1A600192EFB /* WLSTNotificationCenter.h */,
+				6380CD38173ED1A600192EFB /* WLSTNotificationCenter.m */,
+				6380CD42173EE04A00192EFB /* WLSTEventCreator.h */,
+				6380CD43173EE04A00192EFB /* WLSTEventCreator.m */,
+			);
+			name = "OS services";
 			sourceTree = "<group>";
 		};
 		6396A24417247564009E9F40 /* DataFetchers */ = {
@@ -582,6 +627,12 @@
 				63FD0D1C173D232000F5C4DD /* SmallPostersViewController.xib in Resources */,
 				63430566173D7B1F004F7155 /* CastViewController.xib in Resources */,
 				63430567173D7B1F004F7155 /* MovieInfoViewController.xib in Resources */,
+				635DA823173E4B080071AF66 /* check.png in Resources */,
+				635DA824173E4B080071AF66 /* star.png in Resources */,
+				635DA825173E4B080071AF66 /* heart.png in Resources */,
+				635DA826173E4B080071AF66 /* list.png in Resources */,
+				635DA827173E4B080071AF66 /* list1.png in Resources */,
+				635DA82A173E4E750071AF66 /* add.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -607,14 +658,17 @@
 				63462233173671AD00D0F82C /* WhiteView.m in Sources */,
 				63462266173690B400D0F82C /* PostersCollectionView.m in Sources */,
 				63FD0D1A173D231500F5C4DD /* SmallPostersViewController.m in Sources */,
-				63430547173D5C75004F7155 /* List.m in Sources */,
-				6343054D173D5C75004F7155 /* User.m in Sources */,
 				63430553173D5D17004F7155 /* YouTubeFetcher.m in Sources */,
 				63430554173D5D17004F7155 /* TheMovieDbFetcher.m in Sources */,
 				63430557173D6158004F7155 /* Movie+TMDB.m in Sources */,
-				6343055D173D7269004F7155 /* Movie.m in Sources */,
 				63430560173D7B00004F7155 /* CastViewController.m in Sources */,
 				63430563173D7B0F004F7155 /* MovieInfoViewController.m in Sources */,
+				6380CD2D173EB75F00192EFB /* List.m in Sources */,
+				6380CD30173EB75F00192EFB /* Movie.m in Sources */,
+				6380CD33173EB76000192EFB /* User.m in Sources */,
+				6380CD39173ED1A600192EFB /* WLSTNotificationCenter.m in Sources */,
+				6380CD3F173ED77D00192EFB /* List+TMDB.m in Sources */,
+				6380CD44173EE04A00192EFB /* WLSTEventCreator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

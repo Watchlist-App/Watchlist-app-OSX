@@ -13,6 +13,8 @@
 #import "SmallPostersViewController.h"
 
 @interface MovieInfoViewController ()
+@property (strong, nonatomic) SmallPostersViewController *smallPostersVC;
+@property (strong, nonatomic) CastViewController *castVC;
 
 @end
 
@@ -21,26 +23,29 @@
 - (void)setMovie:(Movie *)movie{
     [self.posterView setImage:movie.posterPicture];
     [self.titleLabel setStringValue:movie.title];
-    [self.releaseDateLabel setStringValue:[movie.releaseDate description]];
-    [self.budgetLabel setStringValue:movie.budget.stringValue];
-    [self.revenueLabel setStringValue:movie.revenue.stringValue];
+    [self.releaseDateLabel setStringValue:[movie.releaseDate descriptionWithCalendarFormat:@"%d-%m-%Y" timeZone:nil locale:nil]];
+    [self.budgetLabel setIntValue:movie.budget];
+    [self.revenueLabel setIntValue:movie.revenue];
     [self.runtimeLabel setStringValue:movie.runtime];
     [self.plotLabel setStringValue:movie.plot];
+    [self.companiesLabel setStringValue:movie.productionCompanies];
+    [self.genresLabel setStringValue:movie.genres];
+    [self.countriesLabel setStringValue:movie.countries];
     [self.ratingLabel setFloatValue:movie.rating.floatValue];
     [self.youTubePlayerView.mainFrame loadHTMLString:[YouTubeFetcher youtubeHTMLForID:movie.youTubeTrailerID] baseURL:nil];
     
-    SmallPostersViewController *smallPostersVC = [[SmallPostersViewController alloc] initWithNibName:@"MovieListViewController" bundle:[NSBundle mainBundle]];
-    smallPostersVC.view.frame = self.similarMoviesView.frame;
-    [self.view replaceSubview:self.similarMoviesView with:smallPostersVC.view];
-    NSArray *list = [[TheMovieDbFetcher recommendationsForMovieID:movie.tmdbID.intValue] valueForKey:@"results"];
-    [smallPostersVC setListArray:list];
+    self.smallPostersVC.view.frame = self.similarMoviesView.frame;
+    [self.view replaceSubview:self.similarMoviesView with:self.smallPostersVC.view];
+    NSArray *similarMovies = [[TheMovieDbFetcher recommendationsForMovieID:movie.tmdbID.intValue] valueForKey:@"results"];
+    [self.smallPostersVC setListArray:similarMovies];
+    self.similarMoviesView = self.smallPostersVC.view;
     
-    CastViewController *castVC = [[CastViewController alloc] initWithNibName:@"CastViewController" bundle:[NSBundle mainBundle]];
-    castVC.view.frame = self.castView.frame;
-    [self.view replaceSubview:self.castView with:castVC.view];
+    
+    self.castVC.view.frame = self.castView.frame;
+    [self.view replaceSubview:self.castView with:self.castVC.view];
     NSArray *cast = [[TheMovieDbFetcher castForMovieID:movie.tmdbID.intValue] valueForKey:@"cast"];
-    [castVC setCastArray:cast];
-    
+    [self.castVC setCastArray:cast];
+    self.castView = self.castVC.view;
 }
 
 - (void)setMovieDictionary:(NSDictionary *)movie{
@@ -64,17 +69,31 @@
     [self.youTubePlayerView.mainFrame loadHTMLString:[YouTubeFetcher youtubeHTMLForID:youTubeID] baseURL:nil];
     
     
-    SmallPostersViewController *smallPostersVC = [[SmallPostersViewController alloc] initWithNibName:@"MovieListViewController" bundle:[NSBundle mainBundle]];
-    smallPostersVC.view.frame = self.similarMoviesView.frame;
-    [self.view replaceSubview:self.similarMoviesView with:smallPostersVC.view];
+    self.smallPostersVC.view.frame = self.similarMoviesView.frame;
+    [self.view replaceSubview:self.similarMoviesView with:self.smallPostersVC.view];
     NSArray *list = [[TheMovieDbFetcher recommendationsForMovieID:550] valueForKey:@"results"];
-    [smallPostersVC setListArray:list];
+    [self.smallPostersVC setListArray:list];
     
-    CastViewController *castVC = [[CastViewController alloc] initWithNibName:@"CastViewController" bundle:[NSBundle mainBundle]];
-    castVC.view.frame = self.castView.frame;
-    [self.view replaceSubview:self.castView with:castVC.view];
+    self.castVC.view.frame = self.castView.frame;
+    [self.view replaceSubview:self.castView with:self.castVC.view];
     NSArray *cast = [[TheMovieDbFetcher castForMovieID:550] valueForKey:@"cast"];
-    [castVC setCastArray:cast];
+    [self.castVC setCastArray:cast];
 }
+
+
+- (SmallPostersViewController*)smallPostersVC{
+    if (!_smallPostersVC) {
+        _smallPostersVC = [[SmallPostersViewController alloc] initWithNibName:@"SmallPostersViewController" bundle:[NSBundle mainBundle]];
+    }
+    return _smallPostersVC;
+}
+
+- (CastViewController*)castVC{
+    if (!_castVC) {
+        _castVC = [[CastViewController alloc] initWithNibName:@"CastViewController" bundle:[NSBundle mainBundle]];
+    }
+    return _castVC;
+}
+
 
 @end

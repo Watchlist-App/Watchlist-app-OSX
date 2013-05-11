@@ -10,6 +10,7 @@
 #import "User+Create.h"
 
 @interface List (Create)
++ (List *)ListWithTitle:(NSString *)title icon:(NSImage *)icon forUser:(User *)user inManagedObjectContext:(NSManagedObjectContext *)context;
 + (List *)listWithTitle:(NSString *)title inManagedObjectContext:(NSManagedObjectContext *)context;
 + (List *)listWithTitle:(NSString *)title forUser:(User *)user inManagedObjectContext:(NSManagedObjectContext *)context;
 

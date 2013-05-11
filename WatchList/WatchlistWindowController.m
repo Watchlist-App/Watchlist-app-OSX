@@ -10,6 +10,7 @@
 #import "List+Create.h"
 #import "MovieInfoViewController.h"
 #import "TheMovieDbFetcher.h"
+#import "WLSTNotificationCenter.h"
 
 @interface WatchlistWindowController ()
 
@@ -23,12 +24,12 @@
 //add list popover
 @property (weak) IBOutlet NSImageView *listIconView;
 @property (weak) IBOutlet NSTextField *listTitleTextField;
-@property (weak) IBOutlet NSPopUpButton *typePopUpButton;
 
 
 //window toolbar
 @property (weak) IBOutlet NSButton *userIcon;
 @property (weak) IBOutlet NSTextField *usernameLabel;
+@property (weak) IBOutlet NSSegmentedControl *viewSwitcher;
 
 
 @property (strong, nonatomic) User *user;
@@ -43,6 +44,8 @@
 
 @property (strong) IBOutlet NSArrayController *sidebarAC;
 
+@property (strong, nonatomic) WLSTNotificationCenter *notificationCenter;
+
 //popover
 @property (strong, nonatomic)  NSPopover *popover;
 @property (strong, nonatomic)  NSViewController *popoverViewController;
@@ -51,6 +54,8 @@
 @property (weak) IBOutlet NSView *userIconPopover;
 
 @end
+
+
 
 @implementation WatchlistWindowController
 
@@ -73,7 +78,9 @@
     self.watchlistVC.view.frame = self.managedView.frame;
     [self.window.contentView replaceSubview:self.managedView with:self.watchlistVC.view];
     self.managedView = self.watchlistVC.view;
+
 }
+
 
 
 //actions
@@ -96,11 +103,11 @@
 
 
 - (IBAction)searchClicked:(id)sender {
-    NSView *view = [self.searchVC view];
+    NSView *view = [self.internetListVC view];
     view.frame = self.managedView.frame;
     [self.window.contentView replaceSubview:self.managedView with:view];
     self.managedView = view;
-    [self.searchVC setListDictionary:[TheMovieDbFetcher searchMoviesByTitle:self.searchTextField.stringValue]];
+    [self.internetListVC setListDictionary:[TheMovieDbFetcher searchMoviesByTitle:self.searchTextField.stringValue]];
 }
 
 
@@ -109,6 +116,7 @@
     self.selectedList = [self.sidebarAC.content objectAtIndex:index];
     [self.watchlistVC setContentSet:self.selectedList.movies];
     [self.posterVC setContentSet:self.selectedList.movies];
+    [self switchViewClicked:self.viewSwitcher];
 
 }
 
@@ -124,8 +132,7 @@
 
 
 - (IBAction)adListConfirmed:(id)sender {
-    List *newList = [List listWithTitle:self.listTitleTextField.stringValue forUser:self.user inManagedObjectContext:self.managedObjectContext];
-    newList.icon = self.listIconView.image;
+    List *newList = [List ListWithTitle:self.listTitleTextField.stringValue icon:self.listIconView.image forUser:self.user inManagedObjectContext:self.managedObjectContext];
 }
 
 
@@ -148,16 +155,57 @@
 
 
 //delegate methods
-- (void)selectedMovieWithID:(NSString *)tmdbID{
+
+
+- (void)addToSelectedListMovieWithID:(NSString *)tmdbID{
     dispatch_queue_t fetchQueue = dispatch_queue_create("Movie info fetch", NULL);
     dispatch_async(fetchQueue, ^{
         NSDictionary *tmdbDictionary = [TheMovieDbFetcher infoForMovieID:tmdbID.intValue];
-        NSLog(@"%d",tmdbID.intValue);
         Movie *movie = [Movie movieWithTMDBDictionary:tmdbDictionary inManagedObjectContext:self.managedObjectContext];
         [self.selectedList addMoviesObject:movie];
+        
+        [self.notificationCenter deliverNotificationWithTitle: @"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was added to %@",movie.title, self.selectedList.title]];
     });
-    
 }
+
+- (void)addToWatchlistMovieWithID:(NSString *)tmdbID{
+    dispatch_queue_t fetchQueue = dispatch_queue_create("Movie info fetch", NULL);
+    dispatch_async(fetchQueue, ^{
+        NSDictionary *tmdbDictionary = [TheMovieDbFetcher infoForMovieID:tmdbID.intValue];
+        Movie *movie = [Movie movieWithTMDBDictionary:tmdbDictionary inManagedObjectContext:self.managedObjectContext];
+        List *watchlist = [List listWithTitle:@"Watchlist" forUser:self.user inManagedObjectContext:self.managedObjectContext];
+        [watchlist addMoviesObject:movie];
+        
+        [self.notificationCenter deliverNotificationWithTitle:@"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was added to your watchlist",movie.title]];
+    });
+}
+
+- (void)addToFavoritesMovieWithID:(NSString *)tmdbID{
+    dispatch_queue_t fetchQueue = dispatch_queue_create("Movie info fetch", NULL);
+    dispatch_async(fetchQueue, ^{
+        NSDictionary *tmdbDictionary = [TheMovieDbFetcher infoForMovieID:tmdbID.intValue];
+        Movie *movie = [Movie movieWithTMDBDictionary:tmdbDictionary inManagedObjectContext:self.managedObjectContext];
+        List *watchlist = [List listWithTitle:@"Favorites" forUser:self.user inManagedObjectContext:self.managedObjectContext];
+        [watchlist addMoviesObject:movie];
+        
+        [self.notificationCenter deliverNotificationWithTitle:@"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was added to favorites",movie.title]];
+
+    });
+}
+
+- (void)addToWatchedMovieWithID:(NSString *)tmdbID{
+    dispatch_queue_t fetchQueue = dispatch_queue_create("Movie info fetch", NULL);
+    dispatch_async(fetchQueue, ^{
+        NSDictionary *tmdbDictionary = [TheMovieDbFetcher infoForMovieID:tmdbID.intValue];
+        Movie *movie = [Movie movieWithTMDBDictionary:tmdbDictionary inManagedObjectContext:self.managedObjectContext];
+        List *watchlist = [List listWithTitle:@"Watched movies" forUser:self.user inManagedObjectContext:self.managedObjectContext];
+        [watchlist addMoviesObject:movie];
+        
+        [self.notificationCenter deliverNotificationWithTitle:@"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was marked as watched",movie.title]];
+
+    });
+}
+
 
 - (void)clickedInfoForMovie:(Movie *)movie{
     
@@ -173,10 +221,6 @@
     
     // set the scroll view as the content view of your window
     [self.window.contentView replaceSubview:self.managedView with:scrollView];
-
-    
-    //self.movieInfoVC.view.frame = self.managedView.frame;
-    //[[[self.window contentView] animator] replaceSubview:self.managedView with:self.movieInfoVC.view];
     self.managedView = scrollView;
 }
 
@@ -189,8 +233,14 @@
 
 //Lazy instantiation getters
 
+- (WLSTNotificationCenter *)notificationCenter{
+    if (!_notificationCenter) {
+        _notificationCenter = [[WLSTNotificationCenter alloc] init];
+    }
+    return _notificationCenter;
+}
 
-- (internetListViewController *)searchVC{
+- (internetListViewController *)internetListVC{
     if (!_internetListVC) {
         _internetListVC = [[internetListViewController alloc] initWithNibName:@"internetListViewController" bundle:[NSBundle mainBundle]];
         _internetListVC.delegate = self;

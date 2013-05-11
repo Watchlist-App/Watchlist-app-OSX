@@ -9,4 +9,11 @@
 
 @protocol SearchDelegate <NSObject>
 - (void)selectedMovieWithID:(NSString *)tmdbID;
+- (void)addToWatchlistMovieWithID:(NSString *)tmdbID;
+- (void)addToFavoritesMovieWithID:(NSString *)tmdbID;
+- (void)addToWatchedMovieWithID:(NSString *)tmdbID;
+- (void)addToSelectedListMovieWithID:(NSString *)tmdbID;
+
+
+
 @end

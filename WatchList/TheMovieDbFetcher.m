@@ -49,12 +49,15 @@
         return @{@"error": @"404"};
         
     }
+    NSLog([results description]);
     return results;
 }
 
 
 + (NSImage *)imageWithPath:(NSString *)path size:(NSString *)size{
-    NSString *imageURL = [NSString stringWithFormat:@"%@%@%@",[self baseURL], size, path];
+    NSString *baseUrl = @"http://d3gtl9l2a4fn1j.cloudfront.net/t/p/";
+    //NSString *baseUrl = [self baseURL];
+    NSString *imageURL = [NSString stringWithFormat:@"%@%@%@",baseUrl, size, path];
     NSLog(@"%@",imageURL);
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:imageURL]];
     if (imageData) {
@@ -218,13 +221,19 @@
 
 + (NSImage *)posterForMovieID:(NSUInteger)ID size:(NSString *)size{
     NSArray *posterPaths = [[self imagesForMovieID:ID] valueForKey:@"posters"];
-    return [self imageWithPath:[posterPaths[0] valueForKey:@"file_path"] size:size];
+    if (posterPaths.count) {
+        return [self imageWithPath:[posterPaths[0] valueForKey:@"file_path"] size:size];
+    }
+    else return [NSImage imageNamed:@"NSUser"];
 }
 
 
 + (NSImage *)backDropForMovieID:(NSUInteger)ID size:(NSString *)size{
     NSArray *backdropsPaths = [[self imagesForMovieID:ID] valueForKey:@"backdrops"];
-    return [self imageWithPath:[backdropsPaths[0] valueForKey:@"file_path"] size:size];
+    if (backdropsPaths.count) {
+        return [self imageWithPath:[backdropsPaths[0] valueForKey:@"file_path"] size:size];
+    }
+    else return [NSImage imageNamed:@"NSUser"];
 }
 
 + (NSDictionary *)searchMoviesByTitle:(NSString *)title{

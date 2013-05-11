@@ -1,5 +1,5 @@
 //
-//  List.m
+//  List+TMDB.h
 //  WatchList
 //
 //  Created by Dmitry Mazuro on 11/05/2013.
@@ -7,15 +7,7 @@
 //
 
 #import "List.h"
-#import "Movie.h"
-#import "User.h"
 
-
-@implementation List
-
-@dynamic icon;
-@dynamic title;
-@dynamic listOwner;
-@dynamic movies;
-
+@interface List (TMDB)
+- (void)addMovieWithID:(NSUInteger)ID;
 @end
