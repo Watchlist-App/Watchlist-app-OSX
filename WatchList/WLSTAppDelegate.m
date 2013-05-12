@@ -19,6 +19,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     [self.window close];
+    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
     [self.loginWindowController showWindow:self];
   
 }
@@ -62,7 +63,9 @@
 }
 
 
-
+- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification{
+    return YES;
+}
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "com.dm.WatchList" in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory

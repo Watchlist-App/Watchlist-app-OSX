@@ -9,4 +9,7 @@
 
 @protocol WatchlistDelegate <NSObject>
 -(void)clickedInfoForMovie:(Movie *)movie;
+-(void)clickedRemoveMovie:(Movie *)movie;
+
+
 @end

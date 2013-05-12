@@ -27,6 +27,9 @@
 
 
 - (void)setListDictionary:(NSDictionary *)list{
+    [self.progressIndicator setFrameOrigin: CGPointMake((self.listTable.frame.origin.x + (self.listTable.frame.size.width / 2)),
+                                                      (self.listTable.frame.origin.y + (self.listTable.frame.size.height / 2)))];
+    //self.listTable.
     [self.progressIndicator startAnimation:self];
   
     

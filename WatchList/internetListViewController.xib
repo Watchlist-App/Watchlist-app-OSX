@@ -264,35 +264,11 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">searchResultsArrayController</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="972791877"/>
-					</object>
-					<int key="connectionID">94</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">progressIndicator</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="508359067"/>
 					</object>
 					<int key="connectionID">145</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">searchResultsTAble</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="862181833"/>
-					</object>
-					<int key="connectionID">147</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">searchResultsTable</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="862181833"/>
-					</object>
-					<int key="connectionID">148</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
@@ -445,46 +421,6 @@
 						</object>
 					</object>
 					<int key="connectionID">222</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">chechButton</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="109502977"/>
-					</object>
-					<int key="connectionID">223</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">watchlistButton</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="83533747"/>
-					</object>
-					<int key="connectionID">224</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">checkButton</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="109502977"/>
-					</object>
-					<int key="connectionID">225</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">favButton</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="786143484"/>
-					</object>
-					<int key="connectionID">226</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">addButton</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="812867199"/>
-					</object>
-					<int key="connectionID">227</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">

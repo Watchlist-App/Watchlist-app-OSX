@@ -49,7 +49,6 @@
         return @{@"error": @"404"};
         
     }
-    NSLog([results description]);
     return results;
 }
 

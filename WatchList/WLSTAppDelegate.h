@@ -12,7 +12,7 @@
 #import "WatchlistWindowDelegate.h"
 
 
-@interface WLSTAppDelegate : NSObject <NSApplicationDelegate, LoginWindowDelegate, WatchlistWindowDelegate>
+@interface WLSTAppDelegate : NSObject <NSApplicationDelegate, LoginWindowDelegate, WatchlistWindowDelegate, NSUserNotificationCenterDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;

@@ -31,7 +31,6 @@
     if (self) {
         self.managedObjectContext = context;
     }
-    
     return self;
 }
 
@@ -39,6 +38,13 @@
     NSUInteger index = [self.watchlistTableView rowForView:sender];
     Movie *movie = [self.watchlistAC.content objectAtIndex:index];
     [self.delegate clickedInfoForMovie:movie];
+}
+
+- (IBAction)deleteMovieClicked:(NSButton *)sender {
+    NSUInteger index = [self.watchlistTableView rowForView:sender];
+    Movie *movie = [self.watchlistAC.content objectAtIndex:index];
+    [self.watchlistAC removeObjectsAtArrangedObjectIndexes:[NSIndexSet indexSetWithIndex:index]];
+    [self.delegate clickedRemoveMovie:movie];
 }
 
 - (void)setContentSet:(NSSet *)set{

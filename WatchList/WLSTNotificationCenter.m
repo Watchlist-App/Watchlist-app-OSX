@@ -10,8 +10,7 @@
 
 @implementation WLSTNotificationCenter
 
-- (void)deliverNotificationWithTitle:(NSString *)title informativeText:(NSString *)text{
-    [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
++ (void)deliverNotificationWithTitle:(NSString *)title informativeText:(NSString *)text{
     NSUserNotification *notification = [[NSUserNotification alloc] init];
     notification.title = title;
     notification.informativeText = text;
@@ -21,8 +20,5 @@
 }
 
 
-- (BOOL)userNotificationCenter:(NSUserNotificationCenter *)center shouldPresentNotification:(NSUserNotification *)notification{
-    return YES;
-}
 
 @end

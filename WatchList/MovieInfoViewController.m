@@ -11,10 +11,15 @@
 #import "YouTubeFetcher.h"
 #import "CastViewController.h"
 #import "SmallPostersViewController.h"
+#import "WLSTEventCreator.h"
+#import "WLSTNotificationCenter.h"
 
 @interface MovieInfoViewController ()
 @property (strong, nonatomic) SmallPostersViewController *smallPostersVC;
 @property (strong, nonatomic) CastViewController *castVC;
+@property (strong, nonatomic) NSDate *movieReleaseDate;
+@property (strong, nonatomic) NSString *movieTitle;
+@property (weak) IBOutlet NSButton *calendarButton;
 
 @end
 
@@ -24,14 +29,21 @@
     [self.posterView setImage:movie.posterPicture];
     [self.titleLabel setStringValue:movie.title];
     [self.releaseDateLabel setStringValue:[movie.releaseDate descriptionWithCalendarFormat:@"%d-%m-%Y" timeZone:nil locale:nil]];
-    [self.budgetLabel setIntValue:movie.budget];
-    [self.revenueLabel setIntValue:movie.revenue];
+    [self.budgetLabel setIntValue:movie.budget.intValue];
+    [self.revenueLabel setIntValue:movie.revenue.intValue];
     [self.runtimeLabel setStringValue:movie.runtime];
     [self.plotLabel setStringValue:movie.plot];
     [self.companiesLabel setStringValue:movie.productionCompanies];
     [self.genresLabel setStringValue:movie.genres];
     [self.countriesLabel setStringValue:movie.countries];
     [self.ratingLabel setFloatValue:movie.rating.floatValue];
+    
+    self.movieReleaseDate = movie.releaseDate;
+    self.movieTitle = movie.title;
+    if ([movie.releaseDate compare:[NSDate date]] == NSOrderedAscending) {
+        [self.calendarButton setHidden:YES];
+    } else [self.calendarButton setHidden:NO];
+    
     [self.youTubePlayerView.mainFrame loadHTMLString:[YouTubeFetcher youtubeHTMLForID:movie.youTubeTrailerID] baseURL:nil];
     
     self.smallPostersVC.view.frame = self.similarMoviesView.frame;
@@ -80,6 +92,12 @@
     [self.castVC setCastArray:cast];
 }
 
+- (IBAction)addToCalendarClicked:(id)sender {
+    [WLSTEventCreator addEventNamed:[NSString stringWithFormat:@"%@ release",self.movieTitle] description:[NSString stringWithFormat:@"Premiere of the movie \"%@\"",self.movieTitle] date:self.movieReleaseDate];
+    NSString *notificationMessage = [NSString stringWithFormat:@"%@ release date: %@ was saved to your calendar", self.movieTitle, [self.movieReleaseDate descriptionWithCalendarFormat:@"%d.%m.%Y" timeZone:nil locale:nil]];
+    [WLSTNotificationCenter deliverNotificationWithTitle:@"Movie premiere was added to calendar" informativeText:notificationMessage];
+     
+}
 
 - (SmallPostersViewController*)smallPostersVC{
     if (!_smallPostersVC) {

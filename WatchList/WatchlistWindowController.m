@@ -14,24 +14,19 @@
 
 @interface WatchlistWindowController ()
 
-//views
+//managed view
 @property (weak) IBOutlet NSView *managedView;
-@property (weak) IBOutlet NSTableView *sidebarTableView;
 
-//search popover
-@property (weak) IBOutlet NSTextField *searchTextField;
-
-//add list popover
-@property (weak) IBOutlet NSImageView *listIconView;
-@property (weak) IBOutlet NSTextField *listTitleTextField;
-
+//sidebar
+@property (strong) IBOutlet NSTableView *sidebarTableView;
+@property (strong) IBOutlet NSArrayController *sidebarAC;
 
 //window toolbar
 @property (weak) IBOutlet NSButton *userIcon;
 @property (weak) IBOutlet NSTextField *usernameLabel;
 @property (weak) IBOutlet NSSegmentedControl *viewSwitcher;
 
-
+//core data
 @property (strong, nonatomic) User *user;
 @property (strong, nonatomic) List *selectedList;
 
@@ -42,16 +37,16 @@
 @property (strong, nonatomic) PostersViewController *posterVC;
 
 
-@property (strong) IBOutlet NSArrayController *sidebarAC;
-
-@property (strong, nonatomic) WLSTNotificationCenter *notificationCenter;
-
 //popover
 @property (strong, nonatomic)  NSPopover *popover;
 @property (strong, nonatomic)  NSViewController *popoverViewController;
 @property (weak) IBOutlet NSView *addListPopoverView;
-@property (weak) IBOutlet NSView *searchPopoverView;
 @property (weak) IBOutlet NSView *userIconPopover;
+@property (strong) IBOutlet NSView *discoverPopoverView;
+
+//add list popover
+@property (weak) IBOutlet NSImageView *listIconView;
+@property (weak) IBOutlet NSTextField *listTitleTextField;
 
 @end
 
@@ -69,6 +64,7 @@
 
 - (void)windowDidLoad{
     [super windowDidLoad];
+    [self.window makeFirstResponder:nil];
     self.usernameLabel.stringValue = self.user.login;
     self.userIcon.image = self.user.profilePicture;
     
@@ -78,7 +74,6 @@
     self.watchlistVC.view.frame = self.managedView.frame;
     [self.window.contentView replaceSubview:self.managedView with:self.watchlistVC.view];
     self.managedView = self.watchlistVC.view;
-
 }
 
 
@@ -96,18 +91,21 @@
     [self.popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSMinYEdge];
 }
 
-- (IBAction)addMovieClicked:(NSButton*)sender {
-    self.popoverViewController.view = self.searchPopoverView;
+
+- (IBAction)discoverClicked:(NSButton *)sender {
+    self.popoverViewController.view = self.discoverPopoverView;
     [self.popover showRelativeToRect:sender.bounds ofView:sender preferredEdge:NSMinYEdge];
 }
 
 
-- (IBAction)searchClicked:(id)sender {
+
+- (IBAction)searchFieldConfirmed:(NSSearchField *)sender {
     NSView *view = [self.internetListVC view];
     view.frame = self.managedView.frame;
     [self.window.contentView replaceSubview:self.managedView with:view];
     self.managedView = view;
-    [self.internetListVC setListDictionary:[TheMovieDbFetcher searchMoviesByTitle:self.searchTextField.stringValue]];
+    [self.internetListVC setListDictionary:[TheMovieDbFetcher searchMoviesByTitle:[sender stringValue]]];
+
 }
 
 
@@ -153,6 +151,45 @@
 }
 
 
+//discover popover
+- (IBAction)genresClicked:(id)sender {
+}
+
+- (IBAction)popularClicked:(id)sender {
+    NSView *view = [self.internetListVC view];
+    view.frame = self.managedView.frame;
+    [self.window.contentView replaceSubview:self.managedView with:view];
+    self.managedView = view;
+    [self.internetListVC setListDictionary:[TheMovieDbFetcher popularMovies]];
+
+}
+
+- (IBAction)upcomingClicked:(id)sender {
+    NSView *view = [self.internetListVC view];
+    view.frame = self.managedView.frame;
+    [self.window.contentView replaceSubview:self.managedView with:view];
+    self.managedView = view;
+    [self.internetListVC setListDictionary:[TheMovieDbFetcher upcomingMovies]];
+
+}
+
+- (IBAction)topRatedClicked:(id)sender {
+    NSView *view = [self.internetListVC view];
+    view.frame = self.managedView.frame;
+    [self.window.contentView replaceSubview:self.managedView with:view];
+    self.managedView = view;
+    [self.internetListVC setListDictionary:[TheMovieDbFetcher topRatedMovies]];
+
+}
+
+- (IBAction)nowPlayingClicked:(id)sender {
+    NSView *view = [self.internetListVC view];
+    view.frame = self.managedView.frame;
+    [self.window.contentView replaceSubview:self.managedView with:view];
+    self.managedView = view;
+    [self.internetListVC setListDictionary:[TheMovieDbFetcher nowPlayingMovies]];
+
+}
 
 //delegate methods
 
@@ -164,7 +201,7 @@
         Movie *movie = [Movie movieWithTMDBDictionary:tmdbDictionary inManagedObjectContext:self.managedObjectContext];
         [self.selectedList addMoviesObject:movie];
         
-        [self.notificationCenter deliverNotificationWithTitle: @"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was added to %@",movie.title, self.selectedList.title]];
+        [WLSTNotificationCenter deliverNotificationWithTitle: @"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was added to %@",movie.title, self.selectedList.title]];
     });
 }
 
@@ -176,7 +213,7 @@
         List *watchlist = [List listWithTitle:@"Watchlist" forUser:self.user inManagedObjectContext:self.managedObjectContext];
         [watchlist addMoviesObject:movie];
         
-        [self.notificationCenter deliverNotificationWithTitle:@"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was added to your watchlist",movie.title]];
+        [WLSTNotificationCenter deliverNotificationWithTitle:@"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was added to your watchlist",movie.title]];
     });
 }
 
@@ -188,7 +225,7 @@
         List *watchlist = [List listWithTitle:@"Favorites" forUser:self.user inManagedObjectContext:self.managedObjectContext];
         [watchlist addMoviesObject:movie];
         
-        [self.notificationCenter deliverNotificationWithTitle:@"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was added to favorites",movie.title]];
+        [WLSTNotificationCenter deliverNotificationWithTitle:@"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was added to favorites",movie.title]];
 
     });
 }
@@ -201,7 +238,7 @@
         List *watchlist = [List listWithTitle:@"Watched movies" forUser:self.user inManagedObjectContext:self.managedObjectContext];
         [watchlist addMoviesObject:movie];
         
-        [self.notificationCenter deliverNotificationWithTitle:@"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was marked as watched",movie.title]];
+        [WLSTNotificationCenter deliverNotificationWithTitle:@"Movie succesfully added" informativeText:[NSString stringWithFormat:@"%@ was marked as watched",movie.title]];
 
     });
 }
@@ -224,6 +261,10 @@
     self.managedView = scrollView;
 }
 
+- (void)clickedRemoveMovie:(Movie *)movie{
+    [self.selectedList removeMoviesObject:movie];
+}
+
 - (void)backToListPressed{
     self.watchlistVC.view.frame = self.managedView.frame;
     [[self.window.contentView animator] replaceSubview:self.managedView with:self.watchlistVC.view];
@@ -233,12 +274,7 @@
 
 //Lazy instantiation getters
 
-- (WLSTNotificationCenter *)notificationCenter{
-    if (!_notificationCenter) {
-        _notificationCenter = [[WLSTNotificationCenter alloc] init];
-    }
-    return _notificationCenter;
-}
+
 
 - (internetListViewController *)internetListVC{
     if (!_internetListVC) {

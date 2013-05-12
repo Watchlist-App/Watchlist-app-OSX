@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface WLSTNotificationCenter : NSObject<NSUserNotificationCenterDelegate>
-- (void)deliverNotificationWithTitle:(NSString *)title informativeText:(NSString *)text;
+@interface WLSTNotificationCenter : NSObject
++ (void)deliverNotificationWithTitle:(NSString *)title informativeText:(NSString *)text;
 @end

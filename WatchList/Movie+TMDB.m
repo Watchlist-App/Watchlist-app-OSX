@@ -78,7 +78,7 @@
             movie.youTubeTrailerID = [youTubeTrailers[0] valueForKey:@"source"];
         }
         
-        NSImage *poster = [TheMovieDbFetcher posterForMovieID:movie.tmdbID.intValue size:@"w500"];
+        NSImage *poster = [TheMovieDbFetcher imageWithPath:[tmdbDictiory valueForKey:@"poster_path" ] size:@"w500"];//[TheMovieDbFetcher posterForMovieID:movie.tmdbID.intValue size:@"w500"];
     
         movie.posterPicture = poster;
         

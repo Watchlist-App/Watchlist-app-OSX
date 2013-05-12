@@ -11,6 +11,8 @@
 			<string key="com.apple.WebKitIBPlugin">2053</string>
 		</dictionary>
 		<array key="IBDocument.IntegratedClassDependencies">
+			<string>NSButton</string>
+			<string>NSButtonCell</string>
 			<string>NSCustomObject</string>
 			<string>NSCustomView</string>
 			<string>NSDateFormatter</string>
@@ -45,6 +47,39 @@
 				<reference key="NSNextResponder"/>
 				<int key="NSvFlags">258</int>
 				<array class="NSMutableArray" key="NSSubviews">
+					<object class="NSButton" id="886976461">
+						<reference key="NSNextResponder" ref="1005"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{526, 1334}, {29, 23}}</string>
+						<reference key="NSSuperview" ref="1005"/>
+						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView" ref="80907146"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSButtonCell" key="NSCell" id="324070882">
+							<int key="NSCellFlags">67108864</int>
+							<int key="NSCellFlags2">134217728</int>
+							<string key="NSContents"/>
+							<object class="NSFont" key="NSSupport" id="602716153">
+								<string key="NSName">LucidaGrande</string>
+								<double key="NSSize">13</double>
+								<int key="NSfFlags">1044</int>
+							</object>
+							<string key="NSCellIdentifier">_NS:9</string>
+							<reference key="NSControlView" ref="886976461"/>
+							<int key="NSButtonFlags">-2041823232</int>
+							<int key="NSButtonFlags2">129</int>
+							<object class="NSCustomResource" key="NSNormalImage">
+								<string key="NSClassName">NSImage</string>
+								<string key="NSResourceName">NSQuickLookTemplate</string>
+							</object>
+							<string key="NSAlternateContents"/>
+							<string key="NSKeyEquivalent"/>
+							<int key="NSPeriodicDelay">200</int>
+							<int key="NSPeriodicInterval">25</int>
+						</object>
+						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
+					</object>
 					<object class="NSTextField" id="960067546">
 						<reference key="NSNextResponder" ref="1005"/>
 						<int key="NSvFlags">264</int>
@@ -58,11 +93,7 @@
 							<int key="NSCellFlags">68157504</int>
 							<int key="NSCellFlags2">272630784</int>
 							<string key="NSContents">Trailer</string>
-							<object class="NSFont" key="NSSupport" id="602716153">
-								<string key="NSName">LucidaGrande</string>
-								<double key="NSSize">13</double>
-								<int key="NSfFlags">1044</int>
-							</object>
+							<reference key="NSSupport" ref="602716153"/>
 							<string key="NSCellIdentifier">_NS:1535</string>
 							<reference key="NSControlView" ref="960067546"/>
 							<object class="NSColor" key="NSBackgroundColor" id="21509293">
@@ -573,7 +604,7 @@
 						<string key="NSFrame">{{284, 1309}, {485, 17}}</string>
 						<reference key="NSSuperview" ref="1005"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="80907146"/>
+						<reference key="NSNextKeyView" ref="886976461"/>
 						<string key="NSReuseIdentifierKey">_NS:1535</string>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="607428912">
@@ -847,6 +878,22 @@
 					</object>
 					<int key="connectionID">390</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">addToCalendarClicked:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="886976461"/>
+					</object>
+					<int key="connectionID">418</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">calendarButton</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="886976461"/>
+					</object>
+					<int key="connectionID">419</int>
+				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<array key="orderedObjects">
@@ -904,6 +951,7 @@
 							<reference ref="705738969"/>
 							<reference ref="960067546"/>
 							<reference ref="632439538"/>
+							<reference ref="886976461"/>
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -1246,6 +1294,19 @@
 						<reference key="object" ref="915333753"/>
 						<reference key="parent" ref="635969759"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">416</int>
+						<reference key="object" ref="886976461"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="324070882"/>
+						</array>
+						<reference key="parent" ref="1005"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">417</int>
+						<reference key="object" ref="324070882"/>
+						<reference key="parent" ref="886976461"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -1299,6 +1360,8 @@
 				<string key="411.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<integer value="1" key="412.IBDateFormatterBehaviorMetadataKey"/>
 				<string key="412.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="416.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="417.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="42.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="43.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="44.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1315,15 +1378,27 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">415</int>
+			<int key="maxID">419</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
 				<object class="IBPartialClassDescription">
 					<string key="className">MovieInfoViewController</string>
 					<string key="superclassName">NSViewController</string>
+					<object class="NSMutableDictionary" key="actions">
+						<string key="NS.key.0">addToCalendarClicked:</string>
+						<string key="NS.object.0">id</string>
+					</object>
+					<object class="NSMutableDictionary" key="actionInfosByName">
+						<string key="NS.key.0">addToCalendarClicked:</string>
+						<object class="IBActionInfo" key="NS.object.0">
+							<string key="name">addToCalendarClicked:</string>
+							<string key="candidateClassName">id</string>
+						</object>
+					</object>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="budgetLabel">NSTextField</string>
+						<string key="calendarButton">NSButton</string>
 						<string key="castView">NSView</string>
 						<string key="companiesLabel">NSTextField</string>
 						<string key="countriesLabel">NSTextField</string>
@@ -1342,6 +1417,10 @@
 						<object class="IBToOneOutletInfo" key="budgetLabel">
 							<string key="name">budgetLabel</string>
 							<string key="candidateClassName">NSTextField</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="calendarButton">
+							<string key="name">calendarButton</string>
+							<string key="candidateClassName">NSButton</string>
 						</object>
 						<object class="IBToOneOutletInfo" key="castView">
 							<string key="name">castView</string>
@@ -1411,9 +1490,9 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">NSStopProgressFreestandingTemplate</string>
-			<string key="NS.object.0">{83, 83}</string>
-		</object>
+		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="NSQuickLookTemplate">{21, 16}</string>
+			<string key="NSStopProgressFreestandingTemplate">{83, 83}</string>
+		</dictionary>
 	</data>
 </archive>
