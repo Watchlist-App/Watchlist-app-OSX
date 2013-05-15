@@ -32,9 +32,9 @@
             user.password = password;
             user.profilePicture = picture;
             
-            List *favorites = [List ListWithTitle:@"Favorites" icon:[NSImage imageNamed:@"star.png"] forUser:user inManagedObjectContext:context];
-            List *watchlist = [List ListWithTitle:@"Watchlist" icon:[NSImage imageNamed:@"list.png"] forUser:user inManagedObjectContext:context];
-            List *watchedMovies = [List ListWithTitle:@"Watched movies" icon:[NSImage imageNamed:@"check.png"] forUser:user inManagedObjectContext:context];
+            [List ListWithTitle:@"Favorites" icon:[NSImage imageNamed:@"star.png"] forUser:user inManagedObjectContext:context];
+            [List ListWithTitle:@"Watchlist" icon:[NSImage imageNamed:@"list.png"] forUser:user inManagedObjectContext:context];
+            [List ListWithTitle:@"Watched movies" icon:[NSImage imageNamed:@"check.png"] forUser:user inManagedObjectContext:context];
             
         } else {
             user = [matches lastObject];

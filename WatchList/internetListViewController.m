@@ -13,7 +13,7 @@
 @property (strong) IBOutlet NSArrayController *listArrayController;
 @property (strong) IBOutlet NSProgressIndicator *progressIndicator;
 @property (weak) IBOutlet NSTableView *listTable;
-
+@property BOOL isNotReady;
 
 - (IBAction)addButtonClicked:(id)sender;
 - (IBAction)addToFavouritesClicked:(id)sender;
@@ -29,17 +29,18 @@
 - (void)setListDictionary:(NSDictionary *)list{
     [self.progressIndicator setFrameOrigin: CGPointMake((self.listTable.frame.origin.x + (self.listTable.frame.size.width / 2)),
                                                       (self.listTable.frame.origin.y + (self.listTable.frame.size.height / 2)))];
-    //self.listTable.
     [self.progressIndicator startAnimation:self];
   
-    
+    self.isNotReady = YES;
     self.listArrayController.content = [list valueForKey:@"results"];
     dispatch_queue_t fetchQueue = dispatch_queue_create("TMDB Fetch", NULL);
     dispatch_async(fetchQueue, ^{
         [self.listArrayController.content enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop){
             [object setValue:[TheMovieDbFetcher imageWithPath:[object valueForKey:@"poster_path"] size:@"w154"] forKey:@"posterPicture"];
+            [object setValue:[NSDate dateWithNaturalLanguageString:[object valueForKey:@"release_date"]] forKey:@"releaseDate"];
         }];
         dispatch_async(dispatch_get_main_queue(), ^{
+            self.isNotReady = NO;
             [self.listTable reloadData];
             [self.progressIndicator stopAnimation:self];
         });

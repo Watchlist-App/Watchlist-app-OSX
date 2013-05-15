@@ -20,7 +20,7 @@
     dispatch_queue_t photoFetchQueue = dispatch_queue_create("Photos fetch", NULL);
     dispatch_async(photoFetchQueue, ^{
         [self.castAc.content enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop){
-            [obj setValue:[TheMovieDbFetcher imageWithPath:[obj valueForKey:@"profile_path"] size:@"w92"] forKey:@"photo"];
+            [obj setValue:[TheMovieDbFetcher imageWithPath:[obj valueForKey:@"profile_path"] size:@"w185"] forKey:@"photo"];
         }];
     });
 }

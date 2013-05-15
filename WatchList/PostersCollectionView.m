@@ -14,7 +14,7 @@
 
 - (void)magnifyWithEvent:(NSEvent *)event{
     CGFloat newWidth = self.minItemSize.width * ( event.magnification + 1.0 );
-    CGFloat newHeight = self.minItemSize.height * ( event.magnification + 1.0 );
+    CGFloat newHeight;// = self.minItemSize.height * ( event.magnification + 1.0 );
 
     if (newWidth < 150) {
         newWidth = 150;

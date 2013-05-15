@@ -42,35 +42,27 @@
         
         __block NSString *countriesString = [[NSString alloc] init];
         [countries enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop){
-            countriesString = [countriesString stringByAppendingFormat:@"%@, ",[object valueForKey:@"name"]];
+            countriesString = [countriesString stringByAppendingFormat:@"%@ ",[object valueForKey:@"name"]];
         }];
     
-        if ([countriesString hasSuffix:@","]) {
-            countriesString = [countriesString substringToIndex:([countriesString length] - 1)];
-        }
+       
         
         movie.countries = countriesString;
         
         __block NSString *studiosString = [[NSString alloc] init];
         [studios enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop){
-            studiosString = [studiosString stringByAppendingFormat:@"%@, ",[object valueForKey:@"name"]];
+            studiosString = [studiosString stringByAppendingFormat:@"%@ ",[object valueForKey:@"name"]];
         }];
         
-        if ([studiosString hasSuffix:@","]) {
-            studiosString = [studiosString substringToIndex:([countriesString length] - 1)];
-        }
-         
+      
         movie.productionCompanies = studiosString;
         
         __block NSString *genresString = [[NSString alloc] init];
         [genres enumerateObjectsUsingBlock:^(id object, NSUInteger index, BOOL *stop){
-            genresString = [genresString stringByAppendingFormat:@"%@, ",[object valueForKey:@"name"]];
+            genresString = [genresString stringByAppendingFormat:@"%@ ",[object valueForKey:@"name"]];
         }];
         
-        if ([genresString hasSuffix:@","]) {
-            genresString = [genresString substringToIndex:([genresString length] - 1)];
-        }
-        
+      
         movie.genres = genresString;
         
         NSArray *youTubeTrailers = [[TheMovieDbFetcher trailersForMovieID:movie.tmdbID.intValue] valueForKey:@"youtube"];

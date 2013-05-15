@@ -269,9 +269,9 @@
 						<object class="NSButton" key="destination" id="234092444">
 							<reference key="NSNextResponder" ref="662075623"/>
 							<int key="NSvFlags">265</int>
-							<string key="NSFrame">{{846, 215}, {20, 17}}</string>
+							<string key="NSFrame">{{789, 215}, {25, 17}}</string>
 							<reference key="NSSuperview" ref="662075623"/>
-							<reference key="NSNextKeyView" ref="314976470"/>
+							<reference key="NSNextKeyView" ref="394944612"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="574738698">
@@ -320,19 +320,24 @@
 						<object class="NSButton" key="destination" id="394944612">
 							<reference key="NSNextResponder" ref="662075623"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{763, 204}, {80, 32}}</string>
+							<string key="NSFrame">{{838, 212}, {28, 25}}</string>
 							<reference key="NSSuperview" ref="662075623"/>
+							<reference key="NSNextKeyView" ref="314976470"/>
 							<string key="NSReuseIdentifierKey">_NS:9</string>
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSButtonCell" key="NSCell" id="605529093">
 								<int key="NSCellFlags">67108864</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents">Delete</string>
+								<string key="NSContents"/>
 								<reference key="NSSupport" ref="605422442"/>
 								<string key="NSCellIdentifier">_NS:9</string>
 								<reference key="NSControlView" ref="394944612"/>
-								<int key="NSButtonFlags">-2038284288</int>
+								<int key="NSButtonFlags">-2046017536</int>
 								<int key="NSButtonFlags2">129</int>
+								<object class="NSCustomResource" key="NSNormalImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">deleteMono</string>
+								</object>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">200</int>
@@ -563,7 +568,7 @@
 								<object class="NSTextField" id="926136840">
 									<reference key="NSNextResponder" ref="662075623"/>
 									<int key="NSvFlags">268</int>
-									<string key="NSFrame">{{212, 191}, {95, 17}}</string>
+									<string key="NSFrame">{{212, 191}, {422, 17}}</string>
 									<reference key="NSSuperview" ref="662075623"/>
 									<reference key="NSNextKeyView" ref="806521701"/>
 									<string key="NSReuseIdentifierKey">_NS:1535</string>
@@ -617,12 +622,12 @@
 									<string key="NSReuseIdentifierKey">_NS:9</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSLevelIndicatorCell" key="NSCell" id="1060425854">
-										<int key="NSCellFlags">0</int>
+										<int key="NSCellFlags">134217728</int>
 										<int key="NSCellFlags2">0</int>
 										<string key="NSCellIdentifier">_NS:9</string>
 										<reference key="NSControlView" ref="292809757"/>
 										<double key="NSValue">2</double>
-										<double key="NSMaxValue">2</double>
+										<double key="NSMaxValue">10</double>
 										<double key="NSWarningValue">2</double>
 										<double key="NSCriticalValue">2</double>
 										<int key="NSIndicatorStyle">3</int>
@@ -841,7 +846,6 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="25384388"/>
 							<reference ref="604205726"/>
-							<reference ref="234092444"/>
 							<reference ref="314976470"/>
 							<reference ref="806521701"/>
 							<reference ref="389123795"/>
@@ -850,6 +854,7 @@
 							<reference ref="926136840"/>
 							<reference ref="292809757"/>
 							<reference ref="875019970"/>
+							<reference ref="234092444"/>
 							<reference ref="394944612"/>
 						</array>
 						<reference key="parent" ref="1050420510"/>
@@ -1088,20 +1093,6 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">WatchlistViewController</string>
 					<string key="superclassName">NSViewController</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="deleteMovieClicked:">NSButton</string>
-						<string key="infoButtonPressed:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="deleteMovieClicked:">
-							<string key="name">deleteMovieClicked:</string>
-							<string key="candidateClassName">NSButton</string>
-						</object>
-						<object class="IBActionInfo" key="infoButtonPressed:">
-							<string key="name">infoButtonPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
 					<dictionary class="NSMutableDictionary" key="outlets">
 						<string key="watchlistAC">NSArrayController</string>
 						<string key="watchlistTableView">NSTableView</string>
@@ -1131,9 +1122,9 @@
 		</object>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">band-of-brothers-poster-1</string>
-			<string key="NS.object.0">{192, 267.83999999999997}</string>
-		</object>
+		<dictionary class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
+			<string key="band-of-brothers-poster-1">{192, 267.83999999999997}</string>
+			<string key="deleteMono">{59, 59}</string>
+		</dictionary>
 	</data>
 </archive>

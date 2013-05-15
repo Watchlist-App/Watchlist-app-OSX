@@ -17,84 +17,25 @@
 @interface MovieInfoViewController ()
 @property (strong, nonatomic) SmallPostersViewController *smallPostersVC;
 @property (strong, nonatomic) CastViewController *castVC;
-@property (strong, nonatomic) NSDate *movieReleaseDate;
-@property (strong, nonatomic) NSString *movieTitle;
 @property (weak) IBOutlet NSButton *calendarButton;
+@property (weak) IBOutlet NSView *recommendationsView;
+@property (weak) IBOutlet NSView *actorsView;
+@property (weak) IBOutlet NSTextField *trailerLabel;
+@property (weak) IBOutlet NSTextField *castLabel;
+@property (weak) IBOutlet NSTextField *similarMoviesLabel;
+@property (weak) IBOutlet NSButton *shareButton;
 
 @end
 
 @implementation MovieInfoViewController
 
-- (void)setMovie:(Movie *)movie{
-    [self.posterView setImage:movie.posterPicture];
-    [self.titleLabel setStringValue:movie.title];
-    [self.releaseDateLabel setStringValue:[movie.releaseDate descriptionWithCalendarFormat:@"%d-%m-%Y" timeZone:nil locale:nil]];
-    [self.budgetLabel setIntValue:movie.budget.intValue];
-    [self.revenueLabel setIntValue:movie.revenue.intValue];
-    [self.runtimeLabel setStringValue:movie.runtime];
-    [self.plotLabel setStringValue:movie.plot];
-    [self.companiesLabel setStringValue:movie.productionCompanies];
-    [self.genresLabel setStringValue:movie.genres];
-    [self.countriesLabel setStringValue:movie.countries];
-    [self.ratingLabel setFloatValue:movie.rating.floatValue];
-    
-    self.movieReleaseDate = movie.releaseDate;
-    self.movieTitle = movie.title;
-    if ([movie.releaseDate compare:[NSDate date]] == NSOrderedAscending) {
-        [self.calendarButton setHidden:YES];
-    } else [self.calendarButton setHidden:NO];
-    
-    [self.youTubePlayerView.mainFrame loadHTMLString:[YouTubeFetcher youtubeHTMLForID:movie.youTubeTrailerID] baseURL:nil];
-    
-    self.smallPostersVC.view.frame = self.similarMoviesView.frame;
-    [self.view replaceSubview:self.similarMoviesView with:self.smallPostersVC.view];
-    NSArray *similarMovies = [[TheMovieDbFetcher recommendationsForMovieID:movie.tmdbID.intValue] valueForKey:@"results"];
-    [self.smallPostersVC setListArray:similarMovies];
-    self.similarMoviesView = self.smallPostersVC.view;
-    
-    
-    self.castVC.view.frame = self.castView.frame;
-    [self.view replaceSubview:self.castView with:self.castVC.view];
-    NSArray *cast = [[TheMovieDbFetcher castForMovieID:movie.tmdbID.intValue] valueForKey:@"cast"];
-    [self.castVC setCastArray:cast];
-    self.castView = self.castVC.view;
-}
 
-- (void)setMovieDictionary:(NSDictionary *)movie{
-    
-    dispatch_queue_t posterFetchQueue = dispatch_queue_create("poster fetch", NULL);
-    dispatch_async(posterFetchQueue, ^{
-        [self.posterView setImage:[TheMovieDbFetcher imageWithPath:[movie valueForKey:@"poster_path"] size:@"original"]];
-    });
-    [self.titleLabel setStringValue:[movie valueForKey:@"title"]];
-    [self.releaseDateLabel setStringValue:[movie valueForKey:@"release_date"]];
-    [self.budgetLabel setStringValue:[movie valueForKey:@"budget"]];
-    [self.revenueLabel setStringValue:[movie valueForKey:@"revenue"]];
-    [self.runtimeLabel setStringValue:[movie valueForKey:@"runtime"]];
-    [self.plotLabel setStringValue:[movie valueForKey:@"overview"]];
-    [self.ratingLabel setStringValue:[movie valueForKey:@"vote_average"]];
-    
-    NSArray *youTubetrailers = [[TheMovieDbFetcher trailersForMovieID:550] valueForKey:@"youtube"];
-    NSString *youTubeID = [youTubetrailers[0] valueForKey:@"source"];
-
-    
-    [self.youTubePlayerView.mainFrame loadHTMLString:[YouTubeFetcher youtubeHTMLForID:youTubeID] baseURL:nil];
-    
-    
-    self.smallPostersVC.view.frame = self.similarMoviesView.frame;
-    [self.view replaceSubview:self.similarMoviesView with:self.smallPostersVC.view];
-    NSArray *list = [[TheMovieDbFetcher recommendationsForMovieID:550] valueForKey:@"results"];
-    [self.smallPostersVC setListArray:list];
-    
-    self.castVC.view.frame = self.castView.frame;
-    [self.view replaceSubview:self.castView with:self.castVC.view];
-    NSArray *cast = [[TheMovieDbFetcher castForMovieID:550] valueForKey:@"cast"];
-    [self.castVC setCastArray:cast];
-}
 
 - (IBAction)addToCalendarClicked:(id)sender {
-    [WLSTEventCreator addEventNamed:[NSString stringWithFormat:@"%@ release",self.movieTitle] description:[NSString stringWithFormat:@"Premiere of the movie \"%@\"",self.movieTitle] date:self.movieReleaseDate];
-    NSString *notificationMessage = [NSString stringWithFormat:@"%@ release date: %@ was saved to your calendar", self.movieTitle, [self.movieReleaseDate descriptionWithCalendarFormat:@"%d.%m.%Y" timeZone:nil locale:nil]];
+    NSString *title = self.movie.title;
+    NSDate *date = self.movie.releaseDate;
+    [WLSTEventCreator addEventNamed:[NSString stringWithFormat:@"%@ release",title] description:[NSString stringWithFormat:@"Premiere of the movie \"%@\"",title] date:date];
+    NSString *notificationMessage = [NSString stringWithFormat:@"%@ release date: %@ was saved to your calendar", title, [date descriptionWithCalendarFormat:@"%d.%m.%Y" timeZone:nil locale:nil]];
     [WLSTNotificationCenter deliverNotificationWithTitle:@"Movie premiere was added to calendar" informativeText:notificationMessage];
      
 }
@@ -112,6 +53,146 @@
     }
     return _castVC;
 }
+
+- (void)viewWillLoad {
+}
+
+- (void)viewDidLoad {
+    
+    
+    [self.posterView setImage:self.movie.posterPicture];
+    [self.shareButton setImage:[NSImage imageNamed:NSImageNameShareTemplate]];
+    [self.shareButton sendActionOn:NSLeftMouseDownMask];
+
+    [self.titleLabel setStringValue:self.movie.title];
+    [self.releaseDateLabel setStringValue:[self.movie.releaseDate descriptionWithCalendarFormat:@"%d-%m-%Y" timeZone:nil locale:nil]];
+    [self.budgetLabel setIntValue:self.movie.budget.intValue];
+    [self.revenueLabel setIntValue:self.movie.revenue.intValue];
+    [self.runtimeLabel setStringValue:self.movie.runtime];
+    [self.plotLabel setStringValue:self.movie.plot];
+    [self.companiesLabel setStringValue:self.movie.productionCompanies];
+    [self.genresLabel setStringValue:self.movie.genres];
+    [self.countriesLabel setStringValue:self.movie.countries];
+    [self.ratingLabel setFloatValue:self.movie.rating.floatValue];
+    
+    if ([self.movie.releaseDate compare:[NSDate date]] == NSOrderedAscending) {
+        [self.calendarButton setHidden:YES];
+    } else [self.calendarButton setHidden:NO];
+    
+    
+    
+    if ([self.movie.youTubeTrailerID length] > 0) {
+        [self.youTubePlayerView.mainFrame loadHTMLString:[YouTubeFetcher youtubeHTMLForID:self.movie.youTubeTrailerID] baseURL:nil];
+    } else {
+        [self.youTubePlayerView removeFromSuperview];
+        [self.trailerLabel removeFromSuperview];
+    }
+
+    self.castVC.view.frame = self.actorsView.frame;
+    [self.view replaceSubview:self.actorsView with:self.castVC.view];
+        self.actorsView = self.castVC.view;
+    
+    self.smallPostersVC.view.frame = self.recommendationsView.frame;
+    [self.view replaceSubview:self.recommendationsView with:self.smallPostersVC.view];
+       self.recommendationsView = self.smallPostersVC.view;
+    
+    
+    dispatch_queue_t castAndRecommendationsFetch = dispatch_queue_create("Cast and recommendations fetch", NULL);
+    dispatch_async(castAndRecommendationsFetch, ^{
+        NSArray *cast = [[TheMovieDbFetcher castForMovieID:self.movie.tmdbID.intValue] valueForKey:@"cast"];
+        NSArray *similarMovies = [[TheMovieDbFetcher recommendationsForMovieID:self.movie.tmdbID.intValue] valueForKey:@"results"];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (cast.count) {
+                [self.castVC setCastArray:cast];
+            } else{
+                [self.castVC.view removeFromSuperview];
+                [self.castLabel removeFromSuperview];
+            }
+            
+            if (similarMovies.count) {
+                [self.smallPostersVC setListArray:similarMovies];
+            } else {
+                [self.smallPostersVC.view removeFromSuperview];
+                [self.similarMoviesLabel removeFromSuperview];
+            }
+        });
+
+    });
+    
+    
+}
+
+- (void)loadView {
+    [self viewWillLoad];
+    [super loadView];
+    [self viewDidLoad];
+}
+
+
+- (IBAction)shareClicked:(NSButton *)sender {
+    NSMutableArray *shareItems = [NSMutableArray arrayWithObject:self.titleLabel.attributedStringValue];
+    
+    NSImage *image = [self.posterView image];
+    if (image) {
+        [shareItems addObject:image];
+    }
+    
+    [shareItems addObject:self.movie.website];
+    
+    NSSharingServicePicker *sharingServicePicker = [[NSSharingServicePicker alloc] initWithItems:shareItems];
+    sharingServicePicker.delegate = self;
+    
+    [sharingServicePicker showRelativeToRect:[sender bounds]
+                                      ofView:sender
+                               preferredEdge:NSMinYEdge];
+}
+
+
+
+#pragma mark - Sharing service picker delegate methods
+
+- (id <NSSharingServiceDelegate>)sharingServicePicker:(NSSharingServicePicker *)sharingServicePicker delegateForSharingService:(NSSharingService *)sharingService
+{
+    return self;
+}
+
+
+
+
+
+#pragma mark - Sharing service delegate methods
+
+- (NSRect)sharingService:(NSSharingService *)sharingService sourceFrameOnScreenForShareItem:(id<NSPasteboardWriting>)item
+{
+    if ([item isKindOfClass:[NSImage class]]) {
+        NSImage * image = [self.posterView image];
+        NSRect frame = [self.posterView bounds];
+        frame = [self.posterView convertRect:frame toView:nil];
+        frame.origin = [[self.posterView window] convertBaseToScreen:frame.origin];
+        return frame;
+    }
+    return NSZeroRect;
+}
+
+- (NSImage *)sharingService:(NSSharingService *)sharingService transitionImageForShareItem:(id<NSPasteboardWriting>)item contentRect:(NSRect *)contentRect
+{
+    if ([item isKindOfClass:[NSImage class]]) {
+        return [self.posterView image];
+    }
+    else {
+        return nil;
+    }
+}
+
+
+- (NSWindow *)sharingService:(NSSharingService *)sharingService sourceWindowForShareItems:(NSArray *)items sharingContentScope:(NSSharingContentScope *)sharingContentScope
+{
+
+    return self.view.window;
+}
+
+
 
 
 @end

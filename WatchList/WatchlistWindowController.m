@@ -29,12 +29,15 @@
 //core data
 @property (strong, nonatomic) User *user;
 @property (strong, nonatomic) List *selectedList;
+@property (strong, nonatomic) List *watchlist;
+
 
 //view controllers
-@property (strong, nonatomic) MovieInfoViewController *movieInfoVC;
 @property (strong, nonatomic) internetListViewController *internetListVC;
 @property (strong, nonatomic) WatchlistViewController *watchlistVC;
 @property (strong, nonatomic) PostersViewController *posterVC;
+
+@property (strong, nonatomic) MovieInfoViewController *movieInfoVC;
 
 
 //popover
@@ -74,9 +77,22 @@
     self.watchlistVC.view.frame = self.managedView.frame;
     [self.window.contentView replaceSubview:self.managedView with:self.watchlistVC.view];
     self.managedView = self.watchlistVC.view;
+    self.watchlist = [List listWithTitle:@"Watchlist" forUser:self.user inManagedObjectContext:self.managedObjectContext];
+    
+    [[NSApp dockTile] setBadgeLabel:[NSString stringWithFormat:@"%ld",self.watchlist.movies.count]];
+    [self.watchlist addObserver:self forKeyPath:@"movies" options:0 context:NULL];
 }
 
 
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
+    if (context == NULL) {
+        NSSet *movies = [object valueForKeyPath:keyPath];
+    	[[NSApp dockTile] setBadgeLabel:[NSString stringWithFormat:@"%ld",movies.count]];
+    }
+    else {
+    	[super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    }
+}
 
 //actions
 
@@ -130,7 +146,7 @@
 
 
 - (IBAction)adListConfirmed:(id)sender {
-    List *newList = [List ListWithTitle:self.listTitleTextField.stringValue icon:self.listIconView.image forUser:self.user inManagedObjectContext:self.managedObjectContext];
+    [List ListWithTitle:self.listTitleTextField.stringValue icon:self.listIconView.image forUser:self.user inManagedObjectContext:self.managedObjectContext];
 }
 
 
@@ -147,6 +163,24 @@
         [self.posterVC setBackgroundImageNamed:@"linen.png"];
         self.managedView = self.posterVC.view;
     }
+    
+    
+    
+    /*
+    if (sender.selectedSegment == 0) {
+        self.watchlistVC.view.frame = self.managedView.frame;
+        MCViewFlipController *flipper = [[MCViewFlipController alloc] initWithHostView:self.window.contentView frontView:self.managedView backView:self.watchlistVC.view];
+        [flipper flip:self];
+        self.managedView = self.watchlistVC.view;
+        
+    } else{
+        self.posterVC.view.frame = self.managedView.frame;
+        MCViewFlipController *flipper = [[MCViewFlipController alloc] initWithHostView:self.window.contentView frontView:self.managedView backView:self.posterVC.view];
+        [flipper flip:self];
+        [self.posterVC setBackgroundImageNamed:@"linen.png"];
+        self.managedView = self.posterVC.view;
+    }
+     */
     
 }
 
@@ -246,12 +280,20 @@
 
 - (void)clickedInfoForMovie:(Movie *)movie{
     
+    
+    
+    
+    self.movieInfoVC = [[MovieInfoViewController alloc] initWithNibName:@"MovieInfoViewController" bundle:[NSBundle mainBundle]];
+
     [self.movieInfoVC setMovie:movie];
     NSScrollView *scrollView = [[NSScrollView alloc] initWithFrame:self.managedView.frame];
     
     // configure the scroll view
     [scrollView setBorderType:NSNoBorder];
     [scrollView setHasVerticalScroller:YES];
+    //[scrollView setHasHorizontalScroller:YES];
+    [scrollView setAutoresizesSubviews:YES];
+    [scrollView setAutoresizingMask:NSViewWidthSizable | NSViewHeightSizable];
     
     // embed your custom view in the scroll view
     [scrollView setDocumentView:self.movieInfoVC.view];
@@ -259,7 +301,17 @@
     // set the scroll view as the content view of your window
     [self.window.contentView replaceSubview:self.managedView with:scrollView];
     self.managedView = scrollView;
+    
+    
+    if ([scrollView hasVerticalScroller]) {
+        scrollView.verticalScroller.floatValue = 0;
+    }
+    
+    // Scroll the contentView to top
+    [scrollView.contentView scrollToPoint:NSMakePoint(0, ((NSView*)scrollView.documentView).frame.size.height - scrollView.contentSize.height)];
+
 }
+
 
 - (void)clickedRemoveMovie:(Movie *)movie{
     [self.selectedList removeMoviesObject:movie];
@@ -292,13 +344,6 @@
     return _watchlistVC;
 }
 
-- (MovieInfoViewController *)movieInfoVC{
-    if (!_movieInfoVC) {
-        _movieInfoVC = [[MovieInfoViewController alloc] initWithNibName:@"MovieInfoViewController" bundle:[NSBundle mainBundle]];
-        _movieInfoVC.delegate = self;
-    }
-    return _movieInfoVC;
-}
 
 - (PostersViewController *)posterVC{
     if (!_posterVC) {

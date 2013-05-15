@@ -20,7 +20,7 @@
     dispatch_queue_t posterImagesQueue = dispatch_queue_create("Poster images fetch", NULL);
     dispatch_async(posterImagesQueue, ^{
         [self.listAC.content enumerateObjectsUsingBlock:^(id obj, NSUInteger index, BOOL *stop){
-            [obj setValue:[TheMovieDbFetcher imageWithPath:[obj valueForKey:@"poster_path"] size:@"w92"] forKey:@"poster"];
+            [obj setValue:[TheMovieDbFetcher imageWithPath:[obj valueForKey:@"poster_path"] size:@"w154"] forKey:@"poster"];
         }];
     });
 }

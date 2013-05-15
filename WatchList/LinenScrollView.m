@@ -1,14 +1,14 @@
 //
-//  WhiteView.m
+//  LinenScrollView.m
 //  WatchList
 //
-//  Created by Dmitry Mazuro on 05/05/2013.
+//  Created by Dmitry Mazuro on 12/05/2013.
 //  Copyright (c) 2013 dmitry.mazuro. All rights reserved.
 //
 
-#import "WhiteView.h"
+#import "LinenScrollView.h"
 
-@implementation WhiteView
+@implementation LinenScrollView
 
 - (id)initWithFrame:(NSRect)frame
 {
@@ -23,7 +23,7 @@
 - (void)drawRect:(NSRect)dirtyRect
 {
     NSRect bounds = [self bounds];
-    [[NSColor colorWithPatternImage:[NSImage imageNamed:@"maze"]] set];
+    [[NSColor colorWithPatternImage:[NSImage imageNamed:@"linen"]] set];
     [NSBezierPath fillRect:bounds];
 }
 

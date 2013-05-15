@@ -10,13 +10,12 @@
 #import <Quartz/Quartz.h>
 #import "User.h"
 #import "WatchlistViewController.h"
-#import "MovieInfoDelegate.h"
 #import "internetListViewController.h"
 #import "PostersViewController.h"
 #import "WatchlistWindowDelegate.h"
 #import "WatchlistDelegate.h"
 
-@interface WatchlistWindowController : NSWindowController<SearchDelegate, WatchlistDelegate, MovieInfoDelegate, NSTableViewDelegate>
+@interface WatchlistWindowController : NSWindowController<SearchDelegate, WatchlistDelegate, NSTableViewDelegate, NSWindowDelegate>
 @property (strong, nonatomic)NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, assign) id<WatchlistWindowDelegate> delegate;
 - (void)loadWithUserProfile: (User *)userProfile;
