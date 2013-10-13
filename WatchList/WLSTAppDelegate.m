@@ -21,8 +21,9 @@
     [self.window close];
     [[NSUserNotificationCenter defaultUserNotificationCenter] setDelegate:self];
     [self.loginWindowController showWindow:self];
-  
 }
+
+
 
 - (IBAction)preferencesMenuClicked:(id)sender {
     NSLog(@"show settings panel");

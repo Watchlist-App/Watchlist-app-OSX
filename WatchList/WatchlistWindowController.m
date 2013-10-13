@@ -164,24 +164,6 @@
         self.managedView = self.posterVC.view;
     }
     
-    
-    
-    /*
-    if (sender.selectedSegment == 0) {
-        self.watchlistVC.view.frame = self.managedView.frame;
-        MCViewFlipController *flipper = [[MCViewFlipController alloc] initWithHostView:self.window.contentView frontView:self.managedView backView:self.watchlistVC.view];
-        [flipper flip:self];
-        self.managedView = self.watchlistVC.view;
-        
-    } else{
-        self.posterVC.view.frame = self.managedView.frame;
-        MCViewFlipController *flipper = [[MCViewFlipController alloc] initWithHostView:self.window.contentView frontView:self.managedView backView:self.posterVC.view];
-        [flipper flip:self];
-        [self.posterVC setBackgroundImageNamed:@"linen.png"];
-        self.managedView = self.posterVC.view;
-    }
-     */
-    
 }
 
 
