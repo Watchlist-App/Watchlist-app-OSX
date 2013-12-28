@@ -1,6 +1,7 @@
+
 Watchlist web app
 ================
-
+[![Build Status](https://travis-ci.org/Watchlist-App/Watchlist-app-OSX.png?branch=develop)](https://travis-ci.org/Watchlist-App/Watchlist-app-OSX)
 ##Features
 ###Create multiple accounts
 ![image](http://i.imgur.com/a8JegoO.png)
